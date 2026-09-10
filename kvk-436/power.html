@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVK Power Increase — 259 vs 436</title>
+    <meta property="og:title" content="KVK Power Increase — 259 vs 436">
+    <meta property="og:description" content="Kingdom 259 vs 436 — Power gains during KVK prep">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👑</text></svg>">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b0f19;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(212,168,67,0.3);
+  --gold: #ffd700;
+  --gold-light: #d4a843;
+  --gold-dim: #b8860b;
+  --text: #c9d1d9;
+  --text-bright: #e6edf3;
+  --text-muted: #6b7b8d;
+  --text-dim: #4a5568;
+  --crimson: #a52a2a;
+  --crimson-light: #d44444;
+  --medal-gold: #ffd700;
+  --medal-silver: #c0c0c0;
+  --medal-bronze: #cd7f32;
+  --shadow: rgba(0,0,0,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---- Navigation ---- */
+.nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 42px;
+  background: rgba(11,15,25,0.92);
+  border-bottom: 1px solid rgba(255,215,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  font-size: 0.82em;
+  font-weight: 500;
+}
+.nav-bar a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.nav-bar a:hover { color: var(--gold); }
+.nav-bar .nav-active { color: var(--gold); font-weight: 600; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 42px;
+}
+
+/* Subtle background glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.power-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ============ BREADCRUMBS ============ */
+.breadcrumbs {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--gold); }
+.breadcrumbs .bc-sep {
+  color: var(--text-dim);
+  margin: 0 6px;
+}
+.breadcrumbs .bc-current {
+  color: var(--text-dim);
+}
+
+/* ============ KVK TABS ============ */
+.kvk-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+.kvk-tab {
+  display: inline-block;
+  padding: 8px 22px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  transition: all 0.2s;
+}
+.kvk-tab:hover {
+  color: var(--gold);
+  border-color: rgba(255,215,0,0.3);
+}
+.kvk-tab.active {
+  color: var(--bg);
+  background: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* ============ HERO ============ */
+.hero {
+  text-align: center;
+  padding: 50px 20px 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(165,42,42,0.2);
+  color: var(--crimson-light);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border: 1px solid rgba(165,42,42,0.3);
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  color: var(--text-bright);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 50%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ============ STATS ROW ============ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold-dim);
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.stat-card .stat-value {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ============ CONTROLS ============ */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tab-group {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.88em;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.tab-btn:hover {
+  color: var(--text-bright);
+  background: var(--bg-card-hover);
+}
+
+.tab-btn.active {
+  color: #0b0f19;
+  background: var(--gold);
+  font-weight: 700;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  width: 240px;
+  padding: 10px 16px 10px 38px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 0.88em;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-box input::placeholder { color: var(--text-dim); }
+
+.search-box input:focus {
+  border-color: rgba(255,215,0,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 0.9em;
+  pointer-events: none;
+}
+
+/* ============ TABLE / LEADERBOARD ============ */
+.leaderboard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.lb-head {
+  background: linear-gradient(135deg, #1a1520, #1a1225);
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 56px 1fr 130px 130px 130px 90px;
+  gap: 0;
+  align-items: center;
+}
+
+.lb-head span {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.lb-head span:not(:first-child) { text-align: right; }
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 130px 130px 130px 90px;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+
+.lb-row:last-child { border-bottom: none; }
+.lb-row:hover { background: var(--bg-card-hover); }
+
+/* Top 3 rows */
+.lb-row.gold-row {
+  background: linear-gradient(90deg, rgba(255,215,0,0.08), transparent);
+  border-left: 4px solid var(--medal-gold);
+}
+.lb-row.silver-row {
+  background: linear-gradient(90deg, rgba(192,192,192,0.08), transparent);
+  border-left: 4px solid var(--medal-silver);
+}
+.lb-row.bronze-row {
+  background: linear-gradient(90deg, rgba(205,127,50,0.08), transparent);
+  border-left: 4px solid var(--medal-bronze);
+}
+
+.lb-rank {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--text-dim);
+}
+
+.gold-row .lb-rank { color: var(--medal-gold); font-size: 18px; }
+.silver-row .lb-rank { color: var(--medal-silver); font-size: 18px; }
+.bronze-row .lb-rank { color: var(--medal-bronze); font-size: 18px; }
+
+.medal { font-size: 16px; margin-right: 2px; }
+
+.lb-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-bright);
+}
+
+.cell-right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.cell-right.initial-val { color: var(--text-muted); font-weight: 500; }
+.cell-right.after-val { color: var(--text); font-weight: 600; font-family: 'Cinzel', serif; }
+
+.cell-right.gain-val {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.gain-positive { color: #3fb950; }
+.gain-big {
+  color: var(--gold-light);
+  text-shadow: 0 0 20px rgba(212,168,67,0.15);
+}
+.gain-mega {
+  color: #ffaa00;
+  text-shadow: 0 0 20px rgba(255,170,0,0.2);
+}
+.gain-negative { color: var(--crimson-light); }
+
+.cell-right .pct-val {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.pct-tier-1 { color: var(--medal-gold); background: rgba(255,215,0,0.1); }
+.pct-tier-2 { color: #3fb950; background: rgba(63,185,80,0.1); }
+.pct-tier-3 { color: #58a6ff; background: rgba(88,166,255,0.08); }
+.pct-tier-4 { color: var(--text-muted); background: rgba(107,123,141,0.08); }
+.pct-negative { color: var(--crimson-light); background: rgba(165,42,42,0.1); }
+
+.no-results {
+  text-align: center;
+  padding: 48px;
+  color: var(--text-dim);
+  font-size: 1em;
+}
+
+/* ============ SITE FOOTER ============ */
+.site-footer {
+  margin-top: 60px;
+  padding: 40px 20px 24px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.footer-col p,
+.footer-col a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  line-height: 1.8;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  color: var(--text-dim);
+  font-size: 0.75em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .lb-head, .lb-row {
+    grid-template-columns: 48px 1fr 100px 100px 80px;
+    padding: 12px 16px;
+  }
+  .col-initial, .lb-head span:nth-child(3), .lb-row > *:nth-child(3) { display: none; }
+  .hero h1 { font-size: 28px; }
+  .stat-card .stat-value { font-size: 22px; }
+}
+
+@media (max-width: 700px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .lb-head, .lb-row {
+    grid-template-columns: 42px 1fr 80px 70px;
+    padding: 10px 12px;
+  }
+  .col-after, .lb-head span:nth-child(4), .lb-row > *:nth-child(4) { display: none; }
+  .stat-card { padding: 14px 12px; }
+  .stat-card .stat-value { font-size: 18px; }
+  .controls { flex-direction: column; }
+}
+
+@media (max-width: 450px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ LEGACY FOOTER ============ */
+.power-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.power-footer strong {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+}
+
+
+.unmatched-note {
+  margin: -18px 0 24px;
+  padding: 12px 16px;
+  border: 1px solid rgba(212,168,67,0.2);
+  border-radius: 6px;
+  background: rgba(212,168,67,0.06);
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+.unmatched-note strong { color: var(--gold-light); }
+
+</style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/">🏰 259</a>
+        <a href="/kvk-436/prep.html" class="nav-active">⚔️ KVK vs 436</a>
+        <a href="/kvk-219/prep.html">⚔️ KVK vs 219</a>
+        <a href="/thank-you-cindy.html">❤️ Cindy</a>
+    </nav>
+
+<div class="power-wrap">
+
+  <!-- ====== BREADCRUMBS ====== -->
+  <div class="breadcrumbs">
+    <a href="/">🏰 Kingdom 259</a>
+    <span class="bc-sep">›</span>
+    <a href="/kvk-436/prep.html">KVK vs 436</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Power Increase</span>
+  </div>
+
+  <!-- ====== KVK TABS ====== -->
+  <div class="kvk-tabs">
+    <a href="/kvk-436/prep.html" class="kvk-tab">⚔️ Prep Phase</a>
+    <a href="/kvk-436/power.html" class="kvk-tab active">📈 Power Increase</a>
+  </div>
+
+  <!-- ====== HERO ====== -->
+  <div class="hero">
+    <div class="hero-badge">Kingdom 259 vs 436 · Power Growth</div>
+    <h1>Power Increase <span>Leaderboard</span></h1>
+    <div class="hero-sub">Kingdom 259 vs Kingdom 436 — Before → After power snapshots</div>
+  </div>
+
+  <!-- ====== STATS ROW ====== -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" id="s-players">—</div>
+      <div class="stat-label">Players</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-total">—</div>
+      <div class="stat-label">Total Gained</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-avg">—</div>
+      <div class="stat-label">Avg Gain</div>
+    </div>
+  </div>
+
+
+  <div class="unmatched-note"><strong>Snapshot note:</strong> 99 players matched between the before and after snapshots. <strong>CarlX</strong> appears only in the after snapshot at 333,948,716 and is not included in gain totals.</div>
+
+  <!-- ====== CONTROLS ====== -->
+  <div class="controls">
+    <div class="tab-group">
+      <button class="tab-btn active" data-tab="absolute">💰 By Power</button>
+      <button class="tab-btn" data-tab="percentage">📈 By %</button>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search" placeholder="Search player...">
+    </div>
+  </div>
+
+  <!-- ====== LEADERBOARD TABLE ====== -->
+  <div class="leaderboard">
+    <div class="lb-head">
+      <span>#</span>
+      <span>Player</span>
+      <span class="col-initial">Initial</span>
+      <span class="col-after">After</span>
+      <span>Gain</span>
+      <span>% Gain</span>
+    </div>
+    <div id="tbody"></div>
+  </div>
+
+  <div class="power-footer">
+    <strong>Kingdom 259</strong> · LoL Alliance · KVK vs 436 · Before → After snapshots<br>
+    Data sourced from in-game player power tracking
+  </div>
+
+  <!-- ====== SITE FOOTER ====== -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🏰 Kingdom 259</h4>
+        <p>Alliance LoL · Kingshot</p>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 172</h4>
+        <a href="/kvk-172/prep.html">Prep Phase</a>
+        <a href="/kvk-172/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 436</h4>
+        <a href="/kvk-436/prep.html">Prep Phase</a>
+        <a href="/kvk-436/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 219</h4>
+        <a href="/kvk-219/prep.html">Prep Phase</a>
+        <a href="/kvk-219/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="/thank-you-cindy.html">❤️ Thank You Cindy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Kingdom 259 · LoL Alliance · Data sourced from in-game rankings</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+        const P = [
+            {n:"General Buu",i:168295880,a:343281520,g:174985640,p:103.97},
+            {n:"9 5 2 7",i:522685883,a:592378376,g:69692493,p:13.33},
+            {n:"HotDogOfWar",i:340183411,a:403373427,g:63190016,p:18.58},
+            {n:"ⓃⓐⓟKyoukai",i:425225917,a:473329168,g:48103251,p:11.31},
+            {n:"ΛPΣ",i:339415634,a:384190360,g:44774726,p:13.19},
+            {n:"L2P",i:765378786,a:809969098,g:44590312,p:5.83},
+            {n:"DeathPhoenix",i:386447449,a:429584900,g:43137451,p:11.16},
+            {n:"Zeka",i:729722286,a:772221376,g:42499090,p:5.82},
+            {n:"Myrddin",i:390236128,a:432423255,g:42187127,p:10.81},
+            {n:"Kendra",i:729682187,a:767650763,g:37968576,p:5.2},
+            {n:"Dimbi",i:621922324,a:658770851,g:36848527,p:5.92},
+            {n:"Fribble",i:325249097,a:358744812,g:33495715,p:10.3},
+            {n:"Daze",i:424226288,a:455485043,g:31258755,p:7.37},
+            {n:"ⓃⓐⓟNoahLS181018",i:388183755,a:418981707,g:30797952,p:7.93},
+            {n:"PAL",i:316367821,a:346950160,g:30582339,p:9.67},
+            {n:"TanyaTheEvil",i:411460763,a:441204944,g:29744181,p:7.23},
+            {n:"Russ",i:340721605,a:369560207,g:28838602,p:8.46},
+            {n:"Bee",i:357605287,a:386365206,g:28759919,p:8.04},
+            {n:"Lord_Dexter",i:485150464,a:513809080,g:28658616,p:5.91},
+            {n:"ᴾᵀ Toni",i:430457829,a:458597933,g:28140104,p:6.54},
+            {n:"Arno",i:337640791,a:365176929,g:27536138,p:8.16},
+            {n:"KanalFluxX",i:575736660,a:602857246,g:27120586,p:4.71},
+            {n:"LUMIÈRE",i:446615551,a:473124081,g:26508530,p:5.94},
+            {n:"Mimi",i:331680901,a:356753086,g:25072185,p:7.56},
+            {n:"TonyKIPS",i:318083546,a:343063352,g:24979806,p:7.85},
+            {n:"Sir James",i:434413534,a:458837482,g:24423948,p:5.62},
+            {n:"M00nbeam",i:339356473,a:362959463,g:23602990,p:6.96},
+            {n:"Dangunit",i:477351873,a:500658719,g:23306846,p:4.88},
+            {n:"Czeszej86",i:314832792,a:337464805,g:22632013,p:7.19},
+            {n:"_MW_",i:369918307,a:392449981,g:22531674,p:6.09},
+            {n:"Jonzn",i:490720981,a:511603206,g:20882225,p:4.26},
+            {n:"Ramscaleonᴱᴺ",i:362776313,a:382758581,g:19982268,p:5.51},
+            {n:"kanal OverHate",i:306806253,a:325790760,g:18984507,p:6.19},
+            {n:"2122242362482510",i:556333531,a:575190544,g:18857013,p:3.39},
+            {n:"Sì Yǒè",i:364934264,a:383207051,g:18272787,p:5.01},
+            {n:"scotty9292",i:353661200,a:371850512,g:18189312,p:5.14},
+            {n:"Diveranchu",i:400215763,a:418234100,g:18018337,p:4.5},
+            {n:"RavingPineapple",i:407132650,a:424554874,g:17422224,p:4.28},
+            {n:"DΞFROST",i:463851056,a:481007732,g:17156676,p:3.7},
+            {n:"Turk",i:403037913,a:419250942,g:16213029,p:4.02},
+            {n:"MangKanor",i:420706381,a:436756900,g:16050519,p:3.82},
+            {n:"Grim Amr",i:347755679,a:362852645,g:15096966,p:4.34},
+            {n:"Diane ᴱᴺ ⓂⓄⓂ",i:615178045,a:630001102,g:14823057,p:2.41},
+            {n:"Kanal Deus",i:1049224739,a:1063830300,g:14605561,p:1.39},
+            {n:"GriMsbaneᴳˢᴮ",i:301053134,a:314015513,g:12962379,p:4.31},
+            {n:"UÇURUM",i:287356045,a:300244534,g:12888489,p:4.49},
+            {n:"PäpäSūɓZerø",i:323820596,a:336685694,g:12865098,p:3.97},
+            {n:"Cindy Lin",i:387966605,a:400402201,g:12435596,p:3.21},
+            {n:"BATMAN",i:313638362,a:325982167,g:12343805,p:3.94},
+            {n:"jillpy",i:429637971,a:441320720,g:11682749,p:2.72},
+            {n:"KanalGriM26X",i:384635323,a:396314671,g:11679348,p:3.04},
+            {n:"Chrilli",i:311606464,a:322977435,g:11370971,p:3.65},
+            {n:"Rinma",i:392426768,a:403679640,g:11252872,p:2.87},
+            {n:"ERÉIMUL",i:422373343,a:433585735,g:11212392,p:2.65},
+            {n:"Slayer",i:292687435,a:303881120,g:11193685,p:3.82},
+            {n:"KanalMythX",i:420558587,a:431420752,g:10862165,p:2.58},
+            {n:"ⓃⓐⓟBrori",i:387079959,a:397722280,g:10642321,p:2.75},
+            {n:"SKYᵂᴬᴸᴷᴱᴿ",i:363038148,a:373324050,g:10285902,p:2.83},
+            {n:"GrimSaka",i:281346789,a:290669818,g:9323029,p:3.31},
+            {n:"NumaN67",i:514344449,a:523547631,g:9203182,p:1.79},
+            {n:"Eva",i:421824864,a:430940600,g:9115736,p:2.16},
+            {n:"smurf666",i:272270465,a:281179019,g:8908554,p:3.27},
+            {n:"Kanal Nikea",i:195680272,a:204559086,g:8878814,p:4.54},
+            {n:"ⓃⓐⓟYankGrimWay",i:381051809,a:389845980,g:8794171,p:2.31},
+            {n:"Pudge the Toy",i:475787531,a:483553057,g:7765526,p:1.63},
+            {n:"NaughtyLee",i:358286445,a:365926563,g:7640118,p:2.13},
+            {n:"Phatty",i:635553549,a:642964299,g:7410750,p:1.17},
+            {n:"Hello MoTo",i:283555901,a:290787559,g:7231658,p:2.55},
+            {n:"Ralphᴾᴴ",i:306679651,a:313884578,g:7204927,p:2.35},
+            {n:"Smurfsalot",i:316894975,a:323748790,g:6853815,p:2.16},
+            {n:"Marioti83",i:359569839,a:366370597,g:6800758,p:1.89},
+            {n:"BattleBanana",i:243496808,a:249748528,g:6251720,p:2.57},
+            {n:"Gargamel",i:327714753,a:333944971,g:6230218,p:1.9},
+            {n:"MadMAX",i:467321742,a:473254088,g:5932346,p:1.27},
+            {n:"Donquixote",i:447095823,a:452927861,g:5832038,p:1.3},
+            {n:"Etasn",i:463652641,a:469128301,g:5475660,p:1.18},
+            {n:"Wizan",i:608588584,a:614010624,g:5422040,p:0.89},
+            {n:"Lil VIKING",i:343080516,a:348331610,g:5251094,p:1.53},
+            {n:"要你命3000",i:474164194,a:479152482,g:4988288,p:1.05},
+            {n:"Ziskia",i:388275658,a:392291568,g:4015910,p:1.03},
+            {n:"IKARIKNOT",i:292068049,a:295826543,g:3758494,p:1.29},
+            {n:"iMONSOON AU",i:352746872,a:356367890,g:3621018,p:1.03},
+            {n:"Kupal Buu",i:168295880,a:171771770,g:3475890,p:2.07},
+            {n:"TMK",i:294585409,a:297831634,g:3246225,p:1.1},
+            {n:"ginbo",i:349284182,a:352529625,g:3245443,p:0.93},
+            {n:"Angeloᴾᴴ",i:374284903,a:377523966,g:3239063,p:0.87},
+            {n:"mayu",i:191422329,a:194590066,g:3167737,p:1.65},
+            {n:"flashback",i:389747347,a:392879855,g:3132508,p:0.8},
+            {n:"Super Buu",i:177648791,a:180225138,g:2576347,p:1.45},
+            {n:"Pau",i:334110206,a:336609423,g:2499217,p:0.75},
+            {n:"KanalSynthX",i:298086070,a:300532211,g:2446141,p:0.82},
+            {n:"Robster as well",i:211247285,a:213672755,g:2425470,p:1.15},
+            {n:"Robster",i:334864768,a:337284189,g:2419421,p:0.72},
+            {n:"Truth Giver",i:6641702,a:8591569,g:1949867,p:29.36},
+            {n:"Piskot",i:233122273,a:235062846,g:1940573,p:0.83},
+            {n:"KevLee",i:2539030,a:3860635,g:1321605,p:52.05},
+            {n:"Kisshhyy",i:252489756,a:253534933,g:1045177,p:0.41},
+            {n:"Kanal Marki",i:275264422,a:275916502,g:652080,p:0.24},
+            {n:"FranzGrimery",i:157466578,a:157207348,g:-259230,p:-0.16},
+        ];
+
+        const fmt = n => n.toLocaleString();
+        let tab = 'absolute';
+
+        function medal(r) {
+            if (r === 1) return '🥇';
+            if (r === 2) return '🥈';
+            if (r === 3) return '🥉';
+            return '';
+        }
+
+        function gainClass(g) {
+            if (g >= 50000000) return 'gain-mega';
+            if (g >= 20000000) return 'gain-big';
+            if (g >= 0) return 'gain-positive';
+            return 'gain-negative';
+        }
+
+        function pctClass(p) {
+            if (p < 0) return 'pct-negative';
+            if (p >= 15) return 'pct-tier-1';
+            if (p >= 8) return 'pct-tier-2';
+            if (p >= 4) return 'pct-tier-3';
+            return 'pct-tier-4';
+        }
+
+        function rankClass(r) {
+            if (r === 1) return 'gold-row';
+            if (r === 2) return 'silver-row';
+            if (r === 3) return 'bronze-row';
+            return '';
+        }
+
+        function render(filter = '') {
+            let sorted = tab === 'absolute'
+                ? [...P].sort((a, b) => b.g - a.g)
+                : [...P].sort((a, b) => b.p - a.p);
+
+            if (filter) {
+                sorted = sorted.filter(p => p.n.toLowerCase().includes(filter.toLowerCase()));
+            }
+
+            const tbody = document.getElementById('tbody');
+            if (!sorted.length) {
+                tbody.innerHTML = '<div class="no-results">No players found</div>';
+                return;
+            }
+
+            tbody.innerHTML = sorted.map((p, i) => {
+                const r = i + 1;
+                const rc = rankClass(r);
+                return `<div class="lb-row ${rc}">
+                    <span class="lb-rank">${medal(r)}${r}</span>
+                    <span class="lb-name">${p.n}</span>
+                    <span class="cell-right initial-val col-initial">${fmt(p.i)}</span>
+                    <span class="cell-right after-val col-after">${fmt(p.a)}</span>
+                    <span class="cell-right gain-val ${gainClass(p.g)}">${p.g >= 0 ? '+' : ''}${fmt(p.g)}</span>
+                    <span class="cell-right"><span class="pct-val ${pctClass(p.p)}">${p.p >= 0 ? '+' : ''}${p.p}%</span></span>
+                </div>`;
+            }).join('');
+
+            // Stats
+            const total = P.reduce((s, p) => s + p.g, 0);
+            const avg = Math.round(total / P.length);
+            document.getElementById('s-players').textContent = P.length;
+            document.getElementById('s-total').textContent = fmt(total);
+            document.getElementById('s-avg').textContent = fmt(avg);
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                tab = btn.dataset.tab;
+                render(document.getElementById('search').value);
+            });
+        });
+
+        document.getElementById('search').addEventListener('input', e => {
+            render(e.target.value);
+        });
+
+        render();
+</script>
+</body>
+</html>

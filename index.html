@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom 259 — KVK Leaderboards</title>
+    <meta property="og:title" content="Kingdom 259 — KVK Leaderboards">
+    <meta property="og:description" content="Alliance LoL · KVK Leaderboards — Prep Phase & Power Rankings">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👑</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* ---- Custom Properties (for footer) ---- */
+        :root {
+            --bg: #0b0f19;
+            --border: rgba(255,255,255,0.08);
+            --gold: #ffd700;
+            --gold-light: #d4a843;
+            --text-muted: #6b7b8d;
+            --text-dim: #4a5568;
+        }
+
+        /* ---- Navigation ---- */
+        .nav-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 42px;
+            background: rgba(11,15,25,0.92);
+            border-bottom: 1px solid rgba(255,215,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            font-size: 0.82em;
+            font-weight: 500;
+        }
+        .nav-bar a {
+            color: #6b7b8d;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-bar a:hover { color: #ffd700; }
+        .nav-bar .nav-active { color: #ffd700; font-weight: 600; }
+
+        body {
+            padding-top: 42px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0b0f19;
+            color: #c9d1d9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(255,215,0,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px 60px;
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .crown { font-size: 3.5em; margin-bottom: 16px; }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(28px, 6vw, 44px);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 50%, #ff8c00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #6b7b8d;
+            font-size: 1em;
+            margin-bottom: 48px;
+            font-weight: 500;
+        }
+
+        /* ---- KVK Section ---- */
+        .kvk-section {
+            margin-bottom: 36px;
+        }
+
+        .kvk-section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 0 4px;
+        }
+
+        .kvk-section-header .line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+        }
+
+        .kvk-section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1em;
+            font-weight: 700;
+            color: #ffd700;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+
+        .kvk-section-header .vs-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75em;
+            font-weight: 500;
+            color: #6b7b8d;
+            background: rgba(255,255,255,0.04);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .cards { display: flex; flex-direction: column; gap: 12px; }
+
+        a.card {
+            display: block;
+            text-decoration: none;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 24px 24px;
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        a.card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ff8c00);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        a.card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,215,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        a.card:hover::before { opacity: 1; }
+
+        .card-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .card-icon { font-size: 1.6em; flex-shrink: 0; }
+
+        .card-info { flex: 1; min-width: 0; }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05em;
+            font-weight: 700;
+            color: #e6edf3;
+            margin-bottom: 4px;
+        }
+
+        .card-desc {
+            color: #6b7b8d;
+            font-size: 0.82em;
+            line-height: 1.4;
+        }
+
+        .card-stat {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .card-stat .stat-val {
+            font-family: 'Cinzel', serif;
+            font-size: 1em;
+            font-weight: 700;
+            color: #d4a843;
+        }
+
+        .card-stat .stat-label {
+            font-size: 0.7em;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cindy-card {
+            margin-top: 12px;
+            border-color: rgba(255,105,180,0.1);
+        }
+
+        .cindy-card:hover {
+            border-color: rgba(255,105,180,0.25);
+        }
+
+        .footer {
+            margin-top: 48px;
+            color: #3a4452;
+            font-size: 0.78em;
+        }
+
+        /* ============ SITE FOOTER ============ */
+        .site-footer {
+            margin-top: 60px;
+            padding: 40px 20px 24px;
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 28px;
+            text-align: left;
+        }
+        .footer-col h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.82em;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .footer-col p,
+        .footer-col a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            line-height: 1.8;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+            color: var(--text-dim);
+            font-size: 0.75em;
+        }
+        @media (max-width: 700px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 450px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 500px) {
+            .card-row { gap: 12px; }
+            .card-stat { display: none; }
+            a.card { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/" class="nav-active">🏰 259</a>
+        <a href="/kvk-172/prep.html">⚔️ KVK vs 172</a>
+        <a href="/kvk-196/prep.html">⚔️ KVK vs 196</a>
+        <a href="/kvk-219/prep.html">⚔️ KVK vs 219</a>
+        <a href="/kvk-436/prep.html">⚔️ KVK vs 436</a>
+        <a href="/thank-you-cindy.html">❤️ Cindy</a>
+    </nav>
+    <div class="container">
+        <div class="crown">👑</div>
+        <h1>Kingdom 259</h1>
+        <div class="subtitle">Alliance LoL · KVK Leaderboards</div>
+
+        <!-- KVK vs 436 -->
+        <div class="kvk-section">
+            <div class="kvk-section-header">
+                <div class="line"></div>
+                <h2>KVK vs 436</h2>
+                <span class="vs-tag">CURRENT</span>
+                <div class="line"></div>
+            </div>
+            <div class="cards">
+                <a href="/kvk-436/prep.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">⚔️</div>
+                        <div class="card-info">
+                            <div class="card-title">Prep Phase Leaderboard</div>
+                            <div class="card-desc">5-day contribution rankings</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">115.1M</div>
+                            <div class="stat-label">MVP</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/kvk-436/power.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">📈</div>
+                        <div class="card-info">
+                            <div class="card-title">Power Increase Leaderboard</div>
+                            <div class="card-desc">Before → after power growth</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">99</div>
+                            <div class="stat-label">MATCHED</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- KVK vs 196 -->
+        <div class="kvk-section">
+            <div class="kvk-section-header">
+                <div class="line"></div>
+                <h2>KVK vs 196</h2>
+                <span class="vs-tag">LATEST</span>
+                <div class="line"></div>
+            </div>
+            <div class="cards">
+                <a href="/kvk-196/prep.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">⚔️</div>
+                        <div class="card-info">
+                            <div class="card-title">Prep Phase Leaderboard</div>
+                            <div class="card-desc">5-day contribution rankings</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">140.9M</div>
+                            <div class="stat-label">MVP</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/kvk-196/power.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">📈</div>
+                        <div class="card-info">
+                            <div class="card-title">Power Increase Leaderboard</div>
+                            <div class="card-desc">Before and after KVK power growth</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">99.2M</div>
+                            <div class="stat-label">Top Gain</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- KVK vs 172 -->
+        <div class="kvk-section">
+            <div class="kvk-section-header">
+                <div class="line"></div>
+                <h2>KVK vs 172</h2>
+                <span class="vs-tag">CURRENT</span>
+                <div class="line"></div>
+            </div>
+            <div class="cards">
+                <a href="/kvk-172/prep.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">⚔️</div>
+                        <div class="card-info">
+                            <div class="card-title">Prep Phase Leaderboard</div>
+                            <div class="card-desc">5-day contribution rankings</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">349.9M</div>
+                            <div class="stat-label">MVP</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/kvk-172/power.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">📈</div>
+                        <div class="card-info">
+                            <div class="card-title">Power Increase Leaderboard</div>
+                            <div class="card-desc">Who gained the most power during KVK prep</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">247.7M</div>
+                            <div class="stat-label">Top Gain</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- KVK vs 219 -->
+        <div class="kvk-section">
+            <div class="kvk-section-header">
+                <div class="line"></div>
+                <h2>KVK vs 219</h2>
+                <span class="vs-tag">PAST</span>
+                <div class="line"></div>
+            </div>
+            <div class="cards">
+                <a href="/kvk-219/prep.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">⚔️</div>
+                        <div class="card-info">
+                            <div class="card-title">Prep Phase Leaderboard</div>
+                            <div class="card-desc">5-day contribution rankings</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">117.2M</div>
+                            <div class="stat-label">MVP</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/kvk-219/power.html" class="card">
+                    <div class="card-row">
+                        <div class="card-icon">📈</div>
+                        <div class="card-info">
+                            <div class="card-title">Power Increase Leaderboard</div>
+                            <div class="card-desc">Who gained the most power during KVK prep</div>
+                        </div>
+                        <div class="card-stat">
+                            <div class="stat-val">90.9M</div>
+                            <div class="stat-label">Top Gain</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <a href="/thank-you-cindy.html" class="card cindy-card">
+            <div class="card-row">
+                <div class="card-icon">❤️</div>
+                <div class="card-info">
+                    <div class="card-title">Thank You Cindy</div>
+                    <div class="card-desc">Messages of gratitude for our amazing HR from the LoL family</div>
+                </div>
+            </div>
+        </a>
+
+        <div class="footer">Kingdom 259 · Alliance LoL</div>
+
+        <!-- ====== SITE FOOTER ====== -->
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>🏰 Kingdom 259</h4>
+                    <p>Alliance LoL · Kingshot</p>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 172</h4>
+                    <a href="/kvk-172/prep.html">Prep Phase</a>
+                    <a href="/kvk-172/power.html">Power Increase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 219</h4>
+                    <a href="/kvk-219/prep.html">Prep Phase</a>
+                    <a href="/kvk-219/power.html">Power Increase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 196</h4>
+                    <a href="/kvk-196/prep.html">Prep Phase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 436</h4>
+                    <a href="/kvk-436/prep.html">Prep Phase</a>
+                    <a href="/kvk-436/power.html">Power Increase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="/thank-you-cindy.html">❤️ Thank You Cindy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Kingdom 259 · LoL Alliance · Data sourced from in-game rankings</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[97367,["/rally/_next/static/chunks/22k9sz0qxt8-n.js","/rally/_next/static/chunks/14mrh2-p_w84d.js","/rally/_next/static/chunks/3i_-uvqrubr4s.js"],"ViewportBoundary"]
+3:I[97367,["/rally/_next/static/chunks/22k9sz0qxt8-n.js","/rally/_next/static/chunks/14mrh2-p_w84d.js","/rally/_next/static/chunks/3i_-uvqrubr4s.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[27201,["/rally/_next/static/chunks/22k9sz0qxt8-n.js","/rally/_next/static/chunks/14mrh2-p_w84d.js","/rally/_next/static/chunks/3i_-uvqrubr4s.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Kingshot Rally Sync"}],["$","meta","1",{"name":"description","content":"Synchronize your Kingshot rally march times. Calculate exactly when each player should start their march."}],["$","link","2",{"rel":"icon","href":"/rally/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"TCfU1oObDda21i6U9SO6Y"}

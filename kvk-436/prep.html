@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVK Prep Phase Leaderboard — Kingdom 259 vs 436</title>
+    <meta property="og:title" content="KVK Prep Phase Leaderboard — Kingdom 259 vs 436">
+    <meta property="og:description" content="Kingdom 259 vs 219 — 5-Day Contribution Rankings">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👑</text></svg>">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b0f19;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(212,168,67,0.3);
+  --gold: #ffd700;
+  --gold-light: #d4a843;
+  --gold-dim: #b8860b;
+  --text: #c9d1d9;
+  --text-bright: #e6edf3;
+  --text-muted: #6b7b8d;
+  --text-dim: #4a5568;
+  --crimson: #a52a2a;
+  --crimson-light: #d44444;
+  --medal-gold: #ffd700;
+  --medal-silver: #c0c0c0;
+  --medal-bronze: #cd7f32;
+  --shadow: rgba(0,0,0,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---- Navigation ---- */
+.nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 42px;
+  background: rgba(11,15,25,0.92);
+  border-bottom: 1px solid rgba(255,215,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  font-size: 0.82em;
+  font-weight: 500;
+}
+.nav-bar a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.nav-bar a:hover { color: var(--gold); }
+.nav-bar .nav-active { color: var(--gold); font-weight: 600; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 42px;
+}
+
+/* Subtle background glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kvk-prep-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ============ BREADCRUMBS ============ */
+.breadcrumbs {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--gold); }
+.breadcrumbs .bc-sep {
+  color: var(--text-dim);
+  margin: 0 6px;
+}
+.breadcrumbs .bc-current {
+  color: var(--text-dim);
+}
+
+/* ============ KVK TABS ============ */
+.kvk-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+.kvk-tab {
+  display: inline-block;
+  padding: 8px 22px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  transition: all 0.2s;
+}
+.kvk-tab:hover {
+  color: var(--gold);
+  border-color: rgba(255,215,0,0.3);
+}
+.kvk-tab.disabled { opacity: .55; cursor: default; }
+        .kvk-tab.active {
+  color: var(--bg);
+  background: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* ============ HERO ============ */
+.hero {
+  text-align: center;
+  padding: 50px 20px 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(165,42,42,0.2);
+  color: var(--crimson-light);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border: 1px solid rgba(165,42,42,0.3);
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  color: var(--text-bright);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 50%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ============ STATS ROW ============ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold-dim);
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.stat-card .stat-value {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.stat-card.mvp .stat-value { color: var(--crimson-light); }
+.stat-card.highlight { border-top-color: var(--crimson-light); }
+
+/* ============ SECTION HEADERS ============ */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 40px 0 20px;
+}
+
+.section-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-bright);
+  white-space: nowrap;
+}
+
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dim), transparent);
+}
+
+/* ============ DAY CARDS ============ */
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.day-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-gold);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.day-card-head {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  padding: 14px 18px;
+  border-bottom: 2px solid var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.day-card-head h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.day-card-head .day-top-score {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.day-card-head .day-top-score strong {
+  color: var(--gold-light);
+  font-family: 'Cinzel', serif;
+}
+
+.day-list {
+  list-style: none;
+  padding: 0;
+}
+
+.day-list li {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+  font-size: 14px;
+}
+
+.day-list li:last-child { border-bottom: none; }
+.day-list li:hover { background: var(--bg-card-hover); }
+
+.day-list .dl-rank {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.day-list .dl-rank.top1 { color: var(--medal-gold); font-size: 15px; }
+.day-list .dl-rank.top2 { color: var(--medal-silver); }
+.day-list .dl-rank.top3 { color: var(--medal-bronze); }
+
+.day-list .dl-name {
+  font-weight: 600;
+  color: var(--text-bright);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.day-list .dl-score {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+
+/* ============ OVERALL LEADERBOARD ============ */
+.overall-section {
+  margin-top: 50px;
+}
+
+.leaderboard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.lb-head {
+  background: linear-gradient(135deg, #1a1520, #1a1225);
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 50px 1fr 140px 100px;
+  gap: 12px;
+  align-items: center;
+}
+
+.lb-head span {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 140px 100px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+
+.lb-row:last-child { border-bottom: none; }
+.lb-row:hover { background: var(--bg-card-hover); }
+
+.lb-row.gold-row {
+  background: linear-gradient(90deg, rgba(255,215,0,0.08), transparent);
+  border-left: 4px solid var(--medal-gold);
+}
+.lb-row.silver-row {
+  background: linear-gradient(90deg, rgba(192,192,192,0.08), transparent);
+  border-left: 4px solid var(--medal-silver);
+}
+.lb-row.bronze-row {
+  background: linear-gradient(90deg, rgba(205,127,50,0.08), transparent);
+  border-left: 4px solid var(--medal-bronze);
+}
+
+.lb-rank {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.gold-row .lb-rank { color: var(--medal-gold); font-size: 22px; }
+.silver-row .lb-rank { color: var(--medal-silver); font-size: 20px; }
+.bronze-row .lb-rank { color: var(--medal-bronze); font-size: 20px; }
+
+.lb-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-bright);
+}
+
+.lb-score {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--gold-light);
+  text-align: right;
+}
+
+.lb-bar-wrap {
+  height: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lb-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #b8860b, #d4a843);
+  border-radius: 4px;
+  transition: width 0.8s ease-out;
+}
+
+/* Medals for top 3 */
+.medal { font-size: 18px; margin-right: 4px; }
+
+/* ============ DAY PIPS (in overall) ============ */
+.day-pips {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.day-pip {
+  width: 22px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+
+.day-pip.active { background: var(--gold-dim); }
+.day-pip.active.top3-pip { background: var(--crimson-light); }
+
+/* ============ SITE FOOTER ============ */
+.site-footer {
+  margin-top: 60px;
+  padding: 40px 20px 24px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.footer-col p,
+.footer-col a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  line-height: 1.8;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  color: var(--text-dim);
+  font-size: 0.75em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 700px) {
+  .lb-head, .lb-row {
+    grid-template-columns: 40px 1fr 90px;
+  }
+  .lb-head span:last-child,
+  .lb-row .lb-bar-wrap {
+    display: none;
+  }
+  .days-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 { font-size: 28px; }
+  .stat-card .stat-value { font-size: 22px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 450px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ LEGACY FOOTER ============ */
+.prep-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.prep-footer strong {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+}
+
+</style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/">🏰 259</a>
+        <a href="/kvk-172/prep.html">⚔️ KVK vs 172</a>
+        <a href="/kvk-436/prep.html" class="nav-active">⚔️ KVK vs 436</a>
+        <a href="/thank-you-cindy.html">❤️ Cindy</a>
+    </nav>
+
+<div class="kvk-prep-wrap">
+
+  <!-- ====== BREADCRUMBS ====== -->
+  <div class="breadcrumbs">
+    <a href="/">🏰 Kingdom 259</a>
+    <span class="bc-sep">›</span>
+    <a href="/kvk-436/prep.html">KVK vs 436</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Prep Phase</span>
+  </div>
+
+  <!-- ====== KVK TABS ====== -->
+  <div class="kvk-tabs">
+    <a href="/kvk-436/prep.html" class="kvk-tab active">⚔️ Prep Phase</a>
+    <a href="/kvk-436/power.html" class="kvk-tab">📈 Power Increase</a>
+  </div>
+
+  <!-- ====== HERO ====== -->
+  <div class="hero">
+    <div class="hero-badge">Alliance LoL · Kingdom 259</div>
+    <h1>KVK Prep Phase <span>Leaderboard</span></h1>
+    <div class="hero-sub">Kingdom 259 vs Kingdom 436 — 5-Day Contribution Rankings</div>
+  </div>
+
+  <!-- ====== STATS ROW ====== -->
+  <div class="stats-row">
+    <div class="stat-card mvp">
+      <div class="stat-value">Dimbi</div>
+      <div class="stat-label">Overall MVP</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">115.1M</div>
+      <div class="stat-label">MVP Total Score</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2.15B</div>
+      <div class="stat-label">Total Alliance Score</div>
+    </div>
+  </div>
+
+  <!-- ====== DAILY BREAKDOWNS ====== -->
+  <div class="section-header">
+    <h2>⚔️ Daily Breakdown</h2>
+  </div>
+
+  <div class="days-grid" id="daysGrid"></div>
+
+  <!-- ====== OVERALL LEADERBOARD ====== -->
+  <div class="overall-section">
+    <div class="section-header">
+      <h2>🏆 Overall Prep Leaderboard</h2>
+    </div>
+
+    <div class="leaderboard">
+      <div class="lb-head">
+        <span>Rank</span>
+        <span>Warrior</span>
+        <span>Total Score</span>
+        <span>Contribution</span>
+      </div>
+      <div id="lbBody"></div>
+    </div>
+  </div>
+
+  <div class="prep-footer">
+    <strong>Kingdom 259</strong> · LoL Alliance · KVK vs 436<br>
+    Data sourced from in-game alliance rankings
+  </div>
+
+  <!-- ====== SITE FOOTER ====== -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🏰 Kingdom 259</h4>
+        <p>Alliance LoL · Kingshot</p>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 172</h4>
+        <a href="/kvk-172/prep.html">Prep Phase</a>
+        <a href="/kvk-172/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 436</h4>
+        <a href="/kvk-436/prep.html">Prep Phase</a>
+        <a href="/kvk-436/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="/thank-you-cindy.html">❤️ Thank You Cindy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Kingdom 259 · LoL Alliance · Data sourced from in-game rankings</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// =========== DATA ===========
+const DAYS = {
+  1: [
+    {rank:17,player:"Russ",score:16240170},
+    {rank:31,player:"Diane ᴱᴺ ⓂⓄⓂ",score:14374360},
+    {rank:32,player:"L2P",score:14297560},
+    {rank:35,player:"_MW_",score:14046360},
+    {rank:47,player:"''OverHate",score:12250280},
+    {rank:56,player:"Dimbi",score:11684430},
+    {rank:69,player:"Mimi",score:10599900},
+    {rank:72,player:"Hello MoTo",score:10411290},
+    {rank:79,player:"Dangunit",score:10029820},
+    {rank:80,player:"PAL",score:9982020},
+    {rank:86,player:"Kendra",score:9745450},
+    {rank:87,player:"ᴾᵀ Toni",score:9720830},
+    {rank:93,player:"Cindy Lin",score:9537250},
+    {rank:96,player:"Lord_Dexter",score:9499050}
+  ],
+  2: [
+    {rank:2,player:"Hotdog of War",score:23923652},
+    {rank:4,player:"Dimbi",score:22239278},
+    {rank:8,player:"9 5 2 7",score:16930884},
+    {rank:9,player:"KanalGriM26X",score:15436097},
+    {rank:14,player:"Myrddin",score:14069719},
+    {rank:19,player:"L2P",score:12148940},
+    {rank:22,player:"Jonzn",score:11470980},
+    {rank:26,player:"Gargamel",score:10842198},
+    {rank:27,player:"Eva",score:10676208},
+    {rank:29,player:"Lord_Dexter",score:10379971},
+    {rank:46,player:"Raving Pineapple",score:8721951},
+    {rank:64,player:"Etasn",score:7626881},
+    {rank:66,player:"DeathPhoenix",score:7571689},
+    {rank:76,player:"Diane ᴱᴺ ⓂⓄⓂ",score:6976381},
+    {rank:80,player:"PAL",score:6888009},
+    {rank:81,player:"Daze",score:6878673},
+    {rank:84,player:"_MW_",score:6717718},
+    {rank:89,player:"Phatty",score:6405215},
+    {rank:95,player:"Arno",score:6043160},
+    {rank:96,player:"GriMsbane ᴳˢᴮ",score:5995604},
+    {rank:97,player:"jillpy",score:5986820},
+    {rank:99,player:"Sir James",score:5965360}
+  ],
+  3: [
+    {rank:3,player:"Dimbi",score:15509050},
+    {rank:5,player:"Diveranchu",score:13767200},
+    {rank:6,player:"SKYᵂᴬᴸᴷᴱᴿ",score:13370750},
+    {rank:7,player:"Jonzn",score:13224650},
+    {rank:8,player:"Wibble",score:13127850},
+    {rank:9,player:"KanalGriM26X",score:10726350},
+    {rank:10,player:"Kendra",score:10333250},
+    {rank:12,player:"Hotdog of War",score:9123500},
+    {rank:13,player:"Bee",score:9110050},
+    {rank:15,player:"Russ",score:8729400},
+    {rank:19,player:"Mimi",score:8145450},
+    {rank:22,player:"Arno",score:7880400},
+    {rank:25,player:"Ramscaleonᴱᴺ",score:7459000},
+    {rank:27,player:"Diane ᴱᴺ ⓂⓄⓂ",score:7369000},
+    {rank:28,player:"L2P",score:7341300},
+    {rank:35,player:"Cindy Lin",score:6715000},
+    {rank:38,player:"Moonbeam",score:6363900},
+    {rank:59,player:"ᴾᵀ Toni",score:5109600},
+    {rank:60,player:"Lord_Dexter",score:5091350},
+    {rank:73,player:"TonyKIPS",score:4668250},
+    {rank:77,player:"Raving Pineapple",score:4629850},
+    {rank:81,player:"Sir James",score:4493950},
+    {rank:82,player:"GriMsbane ᴳˢᴮ",score:4488950},
+    {rank:84,player:"PAL",score:4422000},
+    {rank:87,player:"Ralphᴾᴴ",score:4347200},
+    {rank:94,player:"NaughtyLee",score:4187000}
+  ],
+  4: [
+    {rank:5,player:"Kendra",score:31241785},
+    {rank:7,player:"9 5 2 7",score:28816496},
+    {rank:8,player:"L2P",score:28454860},
+    {rank:10,player:"Hotdog of War",score:26498217},
+    {rank:11,player:"Dimbi",score:25649577},
+    {rank:13,player:"Phunix",score:24262062},
+    {rank:19,player:"2122242362482510",score:20102604},
+    {rank:20,player:"Myrddin",score:19980553},
+    {rank:34,player:"Bee",score:15039675},
+    {rank:35,player:"DeathPhoenix",score:14970720},
+    {rank:41,player:"TanyaTheEvil",score:14034981},
+    {rank:42,player:"Deus",score:13967975},
+    {rank:44,player:"ⓃⓐⓟKyoukai",score:13908804},
+    {rank:47,player:"ΛPΣ",score:13460490},
+    {rank:58,player:"KanalGriM26X",score:12384425},
+    {rank:61,player:"Diane ᴱᴺ ⓂⓄⓂ",score:11928475},
+    {rank:70,player:"ⓃⓐⓟNoahLS181018",score:11316236},
+    {rank:71,player:"Dangunit",score:11213760},
+    {rank:75,player:"LUMIÈRE",score:10431808},
+    {rank:78,player:"Cindy Lin",score:10262186},
+    {rank:82,player:"Sir James",score:10188021},
+    {rank:86,player:"Russ",score:9879609},
+    {rank:90,player:"Daze",score:9601802},
+    {rank:91,player:"MangKanor",score:9402415},
+    {rank:94,player:"SKYᵂᴬᴸᴷᴱᴿ",score:8775604},
+    {rank:96,player:"Ramscaleonᴱᴺ",score:8655424},
+    {rank:97,player:"ᴾᵀ Toni",score:8544982}
+  ],
+  5: [
+    {rank:1,player:"Dimbi",score:40023030},
+    {rank:3,player:"Wibble",score:22073471},
+    {rank:14,player:"Arno",score:14021110},
+    {rank:23,player:"Kendra",score:12540296},
+    {rank:25,player:"Myrddin",score:11750176},
+    {rank:32,player:"Jonzn",score:10282466},
+    {rank:34,player:"9 5 2 7",score:9592898},
+    {rank:38,player:"ᴾᵀ Toni",score:9390819},
+    {rank:44,player:"Lord_Dexter",score:8962023},
+    {rank:56,player:"ⓃⓐⓟNoahLS181018",score:8312629},
+    {rank:61,player:"Gargamel",score:7839046},
+    {rank:66,player:"Moonbeam",score:7532141},
+    {rank:78,player:"ⓃⓐⓟKyoukai",score:7020360},
+    {rank:85,player:"PäpäSūɓZerø",score:6850760},
+    {rank:86,player:"Mimi",score:6841316},
+    {rank:89,player:"MangKanor",score:6704468},
+    {rank:94,player:"ΛPΣ",score:6541590},
+    {rank:98,player:"ERÈIMUL",score:6310174}
+  ]
+};
+
+const OVERALL = [
+  {rank:2,player:"Dimbi",score:115105365},
+  {rank:8,player:"Kendra",score:69071331},
+  {rank:9,player:"Hotdog of War",score:68568158},
+  {rank:14,player:"L2P",score:64068620},
+  {rank:17,player:"9 5 2 7",score:59073358},
+  {rank:23,player:"Myrddin",score:51665758},
+  {rank:32,player:"Jonzn",score:44136226},
+  {rank:36,player:"Wibble",score:43074365},
+  {rank:40,player:"Bee",score:42478926},
+  {rank:42,player:"Diane ᴱᴺ ⓂⓄⓂ",score:42142085},
+  {rank:43,player:"Lord_Dexter",score:41989819},
+  {rank:44,player:"KanalGriM26X",score:41862142},
+  {rank:48,player:"Russ",score:41251552},
+  {rank:61,player:"ᴾᵀ Toni",score:"38,012,91"},
+  {rank:62,player:"Cindy Lin",score:36906504},
+  {rank:69,player:"Arno",score:35455370},
+  {rank:71,player:"Mimi",score:35392146},
+  {rank:81,player:"ⓃⓐⓟNoahLS181018",score:33310052},
+  {rank:84,player:"ΛPΣ",score:33160560},
+  {rank:89,player:"Dangunit",score:32470764},
+  {rank:91,player:"Moonbeam",score:32271414},
+  {rank:93,player:"GriMsbane ᴳˢᴮ",score:32155233}
+];
+
+// =========== HELPERS ===========
+function fmtScore(n) {
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return n.toLocaleString();
+}
+
+function fmtFull(n) {
+  return typeof n === 'string' ? n : n.toLocaleString();
+}
+
+// Which days did each player appear in? (for overall pips)
+function playerDays(name) {
+  const days = [];
+  for (const [d, entries] of Object.entries(DAYS)) {
+    if (entries.some(e => e.player === name)) days.push(Number(d));
+  }
+  return days;
+}
+
+// Top scorer for each day
+function dayTopScore(dayNum) {
+  const entries = DAYS[dayNum];
+  if (!entries.length) return 0;
+  return Math.max(...entries.map(e => e.score));
+}
+
+// =========== RENDER DAILY CARDS ===========
+const grid = document.getElementById('daysGrid');
+const dayNames = ['Day 1','Day 2','Day 3','Day 4','Day 5'];
+const dayIcons = ['🔥','⚡','⚔️','🏰','👑'];
+
+for (let d = 1; d <= 5; d++) {
+  const entries = DAYS[d].slice().sort((a,b) => b.score - a.score);
+  const topScore = dayTopScore(d);
+
+  const card = document.createElement('div');
+  card.className = 'day-card';
+
+  let listHTML = entries.map((e, i) => {
+    const medalClass = i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
+    const medalIcon = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
+    return `<li>
+      <span class="dl-rank ${medalClass}">${medalIcon || '#' + e.rank}</span>
+      <span class="dl-name">${e.player}</span>
+      <span class="dl-score">${fmtScore(e.score)}</span>
+    </li>`;
+  }).join('');
+
+  card.innerHTML = `
+    <div class="day-card-head">
+      <h3>${dayIcons[d-1]} ${dayNames[d-1]}</h3>
+      <div class="day-top-score">Top: <strong>${fmtScore(topScore)}</strong></div>
+    </div>
+    <ul class="day-list">${listHTML}</ul>
+  `;
+
+  grid.appendChild(card);
+}
+
+// =========== RENDER OVERALL LEADERBOARD ===========
+const lbBody = document.getElementById('lbBody');
+const maxScore = OVERALL[0].score;
+
+OVERALL.forEach((entry, i) => {
+  const row = document.createElement('div');
+  row.className = 'lb-row';
+  if (i === 0) row.classList.add('gold-row');
+  else if (i === 1) row.classList.add('silver-row');
+  else if (i === 2) row.classList.add('bronze-row');
+
+  const medal = i === 0 ? '<span class="medal">🥇</span>' :
+                i === 1 ? '<span class="medal">🥈</span>' :
+                i === 2 ? '<span class="medal">🥉</span>' : '';
+
+  const pips = playerDays(entry.player);
+  let pipsHTML = '<div class="day-pips">';
+  for (let d = 1; d <= 5; d++) {
+    const active = pips.includes(d) ? 'active' : '';
+    pipsHTML += `<div class="day-pip ${active}" title="Day ${d}${active ? ' ✓' : ''}"></div>`;
+  }
+  pipsHTML += '</div>';
+
+  const pct = typeof entry.score === 'number' ? (entry.score / maxScore * 100).toFixed(1) : '0';
+
+  row.innerHTML = `
+    <div class="lb-rank">${medal}${entry.rank}</div>
+    <div class="lb-name">${entry.player}${pipsHTML}</div>
+    <div class="lb-score">${fmtFull(entry.score)}</div>
+    <div class="lb-bar-wrap"><div class="lb-bar" data-width="${pct}"></div></div>
+  `;
+
+  lbBody.appendChild(row);
+});
+
+// =========== ANIMATE BARS ON SCROLL ===========
+function animateBars() {
+  document.querySelectorAll('.lb-bar').forEach(bar => {
+    const targetWidth = bar.getAttribute('data-width');
+    if (targetWidth) {
+      // Trigger reflow, then set target width for CSS transition
+      bar.style.width = '0';
+      void bar.offsetWidth; // force reflow
+      bar.style.width = targetWidth + '%';
+    }
+  });
+}
+
+// Run on load with a small delay to ensure CSS transitions work
+setTimeout(animateBars, 100);
+
+// Also animate when leaderboard scrolls into view
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateBars();
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.leaderboard').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

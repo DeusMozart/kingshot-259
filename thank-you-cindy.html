@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You, Cindy ❤️ — Alliance LoL</title>
+    <meta property="og:title" content="Thank You, Cindy! — Alliance LoL">
+    <meta property="og:description" content="Our amazing alliance HR — messages of gratitude from the LoL & Kingdom 259 family">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>❤️</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>❤️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ── */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #ffd700;
+            --gold-light: #d4a843;
+            --gold-dim: #b8860b;
+            --text: #c9d1d9;
+            --text-muted: #6b7b8d;
+            --text-dim: #4a5568;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0b0f19;
+            color: #c9d1d9;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── Ambient background glow ── */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255,105,180,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 20% 70%, rgba(255,215,0,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(255,105,180,0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Navigation ── */
+        .nav-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 44px;
+            background: rgba(11,15,25,0.92);
+            border-bottom: 1px solid rgba(255,215,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            font-size: 0.82em;
+            font-weight: 500;
+        }
+        .nav-bar a {
+            color: #6b7b8d;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-bar a:hover { color: #ffd700; }
+        .nav-bar .nav-back {
+            position: absolute;
+            left: 18px;
+            font-size: 0.85em;
+        }
+        .nav-bar .nav-back:hover { color: #ffd700; }
+
+        /* ── Hero Section ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        /* Floating hearts background */
+        .hero-hearts {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-hearts span {
+            position: absolute;
+            font-size: 20px;
+            animation: floatHeart 8s infinite ease-in-out;
+            opacity: 0.15;
+        }
+        .hero-hearts span:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 18px; }
+        .hero-hearts span:nth-child(2) { left: 30%; animation-delay: 2s; font-size: 14px; }
+        .hero-hearts span:nth-child(3) { left: 50%; animation-delay: 4s; font-size: 22px; }
+        .hero-hearts span:nth-child(4) { left: 70%; animation-delay: 1s; font-size: 16px; }
+        .hero-hearts span:nth-child(5) { left: 85%; animation-delay: 3s; font-size: 12px; }
+        .hero-hearts span:nth-child(6) { left: 20%; animation-delay: 5s; font-size: 20px; }
+        .hero-hearts span:nth-child(7) { left: 60%; animation-delay: 6s; font-size: 15px; }
+        .hero-hearts span:nth-child(8) { left: 40%; animation-delay: 7s; font-size: 10px; }
+        .hero-hearts span:nth-child(9) { left: 90%; animation-delay: 2.5s; font-size: 13px; }
+        .hero-hearts span:nth-child(10) { left: 5%; animation-delay: 4.5s; font-size: 17px; }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+            25% { transform: translateY(-30px) rotate(10deg); opacity: 0.2; }
+            50% { transform: translateY(-60px) rotate(-5deg); opacity: 0.1; }
+            75% { transform: translateY(-20px) rotate(8deg); opacity: 0.18; }
+        }
+
+        .hero-emoji {
+            font-size: clamp(48px, 10vw, 80px);
+            margin-bottom: 16px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 7vw, 56px);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 30%, #ff8c00 60%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(20px, 3.5vw, 32px);
+            color: #fbbf6e;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .hero-desc {
+            max-width: 500px;
+            color: #6b7b8d;
+            font-size: clamp(14px, 2vw, 17px);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: #4a5a6a;
+            font-size: 0.78em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+        .scroll-indicator .arrow {
+            font-size: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* ── Messages Section ── */
+        .messages {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .messages-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .messages-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(22px, 4vw, 30px);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .messages-header p {
+            color: #5a6a7a;
+            font-size: 0.92em;
+        }
+
+        /* ── Message Bubbles ── */
+        .messages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .message-card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            position: relative;
+        }
+
+        .message-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Alternate left/right feel */
+        .message-card:nth-child(odd) .bubble-wrap {
+            margin-right: auto;
+        }
+        .message-card:nth-child(even) .bubble-wrap {
+            margin-left: auto;
+        }
+        .message-card:nth-child(odd) .bubble {
+            border-radius: 24px 24px 24px 6px;
+        }
+        .message-card:nth-child(even) .bubble {
+            border-radius: 24px 24px 6px 24px;
+        }
+
+        .bubble-wrap {
+            max-width: 520px;
+            width: 100%;
+        }
+
+        .bubble {
+            padding: 24px 28px;
+            position: relative;
+            line-height: 1.7;
+            font-size: 0.95em;
+            backdrop-filter: blur(12px);
+        }
+
+        /* Different bubble colors per message */
+        .message-card:nth-child(1) .bubble {
+            background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(255,107,107,0.04));
+            border: 1px solid rgba(255,107,107,0.2);
+        }
+        .message-card:nth-child(2) .bubble {
+            background: linear-gradient(135deg, rgba(255,165,0,0.12), rgba(255,165,0,0.04));
+            border: 1px solid rgba(255,165,0,0.2);
+        }
+        .message-card:nth-child(3) .bubble {
+            background: linear-gradient(135deg, rgba(50,205,50,0.10), rgba(50,205,50,0.03));
+            border: 1px solid rgba(50,205,50,0.18);
+        }
+        .message-card:nth-child(4) .bubble {
+            background: linear-gradient(135deg, rgba(100,149,237,0.12), rgba(100,149,237,0.04));
+            border: 1px solid rgba(100,149,237,0.2);
+        }
+        .message-card:nth-child(5) .bubble {
+            background: linear-gradient(135deg, rgba(255,215,0,0.10), rgba(255,215,0,0.03));
+            border: 1px solid rgba(255,215,0,0.18);
+        }
+        .message-card:nth-child(6) .bubble {
+            background: linear-gradient(135deg, rgba(255,105,180,0.12), rgba(255,105,180,0.04));
+            border: 1px solid rgba(255,105,180,0.2);
+        }
+        .message-card:nth-child(7) .bubble {
+            background: linear-gradient(135deg, rgba(147,112,219,0.12), rgba(147,112,219,0.04));
+            border: 1px solid rgba(147,112,219,0.2);
+        }
+        /* Cycle the palette for additional messages */
+        .message-card:nth-child(8) .bubble,
+        .message-card:nth-child(15) .bubble,
+        .message-card:nth-child(22) .bubble {
+            background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(255,107,107,0.04));
+            border: 1px solid rgba(255,107,107,0.2);
+        }
+        .message-card:nth-child(9) .bubble,
+        .message-card:nth-child(16) .bubble,
+        .message-card:nth-child(23) .bubble {
+            background: linear-gradient(135deg, rgba(255,165,0,0.12), rgba(255,165,0,0.04));
+            border: 1px solid rgba(255,165,0,0.2);
+        }
+        .message-card:nth-child(10) .bubble,
+        .message-card:nth-child(17) .bubble,
+        .message-card:nth-child(24) .bubble {
+            background: linear-gradient(135deg, rgba(50,205,50,0.10), rgba(50,205,50,0.03));
+            border: 1px solid rgba(50,205,50,0.18);
+        }
+        .message-card:nth-child(11) .bubble,
+        .message-card:nth-child(18) .bubble,
+        .message-card:nth-child(25) .bubble {
+            background: linear-gradient(135deg, rgba(100,149,237,0.12), rgba(100,149,237,0.04));
+            border: 1px solid rgba(100,149,237,0.2);
+        }
+        .message-card:nth-child(12) .bubble,
+        .message-card:nth-child(19) .bubble,
+        .message-card:nth-child(26) .bubble {
+            background: linear-gradient(135deg, rgba(255,215,0,0.10), rgba(255,215,0,0.03));
+            border: 1px solid rgba(255,215,0,0.18);
+        }
+        .message-card:nth-child(13) .bubble,
+        .message-card:nth-child(20) .bubble,
+        .message-card:nth-child(27) .bubble {
+            background: linear-gradient(135deg, rgba(255,105,180,0.12), rgba(255,105,180,0.04));
+            border: 1px solid rgba(255,105,180,0.2);
+        }
+        .message-card:nth-child(14) .bubble,
+        .message-card:nth-child(21) .bubble,
+        .message-card:nth-child(28) .bubble {
+            background: linear-gradient(135deg, rgba(147,112,219,0.12), rgba(147,112,219,0.04));
+            border: 1px solid rgba(147,112,219,0.2);
+        }
+        .message-card:nth-child(29) .bubble,
+        .message-card:nth-child(36) .bubble {
+            background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(255,107,107,0.04));
+            border: 1px solid rgba(255,107,107,0.2);
+        }
+        .message-card:nth-child(30) .bubble,
+        .message-card:nth-child(37) .bubble {
+            background: linear-gradient(135deg, rgba(255,165,0,0.12), rgba(255,165,0,0.04));
+            border: 1px solid rgba(255,165,0,0.2);
+        }
+        .message-card:nth-child(31) .bubble,
+        .message-card:nth-child(38) .bubble {
+            background: linear-gradient(135deg, rgba(50,205,50,0.10), rgba(50,205,50,0.03));
+            border: 1px solid rgba(50,205,50,0.18);
+        }
+        .message-card:nth-child(32) .bubble,
+        .message-card:nth-child(39) .bubble {
+            background: linear-gradient(135deg, rgba(100,149,237,0.12), rgba(100,149,237,0.04));
+            border: 1px solid rgba(100,149,237,0.2);
+        }
+
+        .message-text {
+            color: #d4dce6;
+            margin-bottom: 16px;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        .message-sender {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sender-emoji {
+            font-size: 1.3em;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+
+        .sender-name {
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #e6edf3;
+        }
+
+        /* Message card hover effect */
+        .message-card:hover .bubble {
+            transform: scale(1.01);
+            transition: transform 0.3s ease;
+        }
+
+        /* ── Footer ── */
+        .footer-section {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 40px 20px 60px;
+            border-top: 1px solid rgba(255,215,0,0.06);
+        }
+        .footer-section .big-heart {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+        .footer-section p {
+            color: #4a5a6a;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+        .footer-section .highlight {
+            color: #fbbf6e;
+            font-weight: 500;
+        }
+
+        /* ── Floating Music Player ── */
+        .music-player {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(11,15,25,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 50px;
+            padding: 10px 10px 10px 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.05);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        .music-player:hover {
+            border-color: rgba(255,215,0,0.3);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 30px rgba(255,215,0,0.1);
+        }
+
+        .music-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #0b0f19;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .music-btn:hover { transform: scale(1.08); }
+        .music-btn:active { transform: scale(0.95); }
+
+        /* Spinning animation when playing */
+        .music-btn.playing .btn-icon {
+            animation: spin 3s linear infinite;
+        }
+        .music-btn.paused .btn-icon {
+            animation: none;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Ripple ring when playing */
+        .music-btn.playing::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,215,0,0.3);
+            animation: ripplePulse 2s ease-out infinite;
+        }
+        @keyframes ripplePulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .music-label {
+            font-size: 0.65em;
+            color: #6b7b8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .music-title {
+            font-size: 0.85em;
+            color: #e6edf3;
+            font-weight: 500;
+        }
+        .music-status {
+            font-size: 0.7em;
+            color: #ffd700;
+            transition: opacity 0.3s;
+        }
+        .music-status.playing { color: #50fa7b; }
+
+        /* Volume slider */
+        .music-vol-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .music-vol-btn {
+            background: none;
+            border: none;
+            color: #6b7b8d;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .music-vol-btn:hover { color: #ffd700; }
+        .music-vol-slider {
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .music-vol-slider.open {
+            width: 60px;
+        }
+        .music-vol-slider input[type="range"] {
+            width: 56px;
+            height: 4px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255,215,0,0.2);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            margin: 0 2px;
+        }
+        .music-vol-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            cursor: pointer;
+            border: none;
+        }
+        .music-vol-slider input[type="range"]::-moz-range-thumb {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Audio visualizer bars (subtle) */
+        .music-bars {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 20px;
+            margin-left: 4px;
+        }
+        .music-bars .bar {
+            width: 3px;
+            background: linear-gradient(to top, #ffd700, #ff8c00);
+            border-radius: 2px;
+            transition: height 0.15s ease;
+        }
+        .music-bars .bar.inactive {
+            background: rgba(255,215,0,0.15);
+            height: 4px !important;
+        }
+
+        /* Autoplay blocked overlay */
+        .music-play-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 199;
+            background: rgba(11,15,25,0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .music-play-overlay.active {
+            display: flex;
+        }
+        .music-play-overlay-inner {
+            text-align: center;
+            animation: fadeInUp 0.6s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .music-play-overlay-inner .big-icon {
+            font-size: 4em;
+            margin-bottom: 16px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .music-play-overlay-inner h3 {
+            font-family: 'Cinzel', serif;
+            color: #e6edf3;
+            font-size: 1.4em;
+            margin-bottom: 8px;
+        }
+        .music-play-overlay-inner p {
+            color: #6b7b8d;
+            font-size: 0.9em;
+        }
+        .music-play-overlay-inner .tap-btn {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            border: none;
+            border-radius: 50px;
+            color: #0b0f19;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .music-play-overlay-inner .tap-btn:hover { transform: scale(1.05); }
+        .music-play-overlay-inner .tap-btn:active { transform: scale(0.97); }
+
+        @media (max-width: 600px) {
+            .music-player {
+                bottom: 16px;
+                right: 16px;
+                padding: 8px 14px 8px 10px;
+            }
+            .music-btn { width: 34px; height: 34px; font-size: 1em; }
+            .music-title { font-size: 0.78em; }
+            .music-bars { display: none; }
+            .music-vol-wrap { display: none; }
+        }
+
+        /* ── Floating Lyrics Panel ── */
+        .lyrics-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 380px;
+            height: 100vh;
+            z-index: 150;
+            background: rgba(11,15,25,0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255,215,0,0.08);
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+        }
+        .lyrics-panel.open {
+            transform: translateX(0);
+        }
+
+        .lyrics-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px 12px;
+            border-bottom: 1px solid rgba(255,215,0,0.06);
+            flex-shrink: 0;
+        }
+        .lyrics-panel-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .lyrics-panel-header .sub {
+            font-size: 0.7em;
+            color: #5a6a7a;
+            margin-top: 2px;
+        }
+        .lyrics-panel-close {
+            background: rgba(255,255,255,0.05);
+            border: none;
+            color: #6b7b8d;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .lyrics-panel-close:hover {
+            background: rgba(255,255,255,0.1);
+            color: #e6edf3;
+        }
+
+        .lyrics-panel-body {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .lyrics-panel-body::-webkit-scrollbar {
+            width: 4px;
+        }
+        .lyrics-panel-body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .lyrics-panel-body::-webkit-scrollbar-thumb {
+            background: rgba(255,215,0,0.15);
+            border-radius: 2px;
+        }
+        .lyrics-panel-body::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,215,0,0.3);
+        }
+        .lyrics-panel-body::before,
+        .lyrics-panel-body::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .lyrics-panel-body::before {
+            top: 0;
+            background: linear-gradient(to bottom, rgba(11,15,25,1) 0%, transparent 100%);
+        }
+        .lyrics-panel-body::after {
+            bottom: 0;
+            background: linear-gradient(to top, rgba(11,15,25,1) 0%, transparent 100%);
+        }
+
+        .lyrics-panel-inner {
+            padding: 80px 24px 80px;
+        }
+
+        /* Line styles */
+        .lyric-line {
+            text-align: left;
+            font-size: 0.95em;
+            line-height: 1.45;
+            padding: 10px 0;
+            color: rgba(201,209,217,0.12);
+            transition: all 0.5s ease;
+            transform: scale(0.92);
+            transform-origin: left center;
+            font-weight: 300;
+            position: relative;
+        }
+        .lyric-line.past {
+            color: rgba(201,209,217,0.3);
+            transform: scale(0.94);
+        }
+        .lyric-line.current {
+            color: #e6edf3;
+            font-size: 1.1em;
+            font-weight: 500;
+            transform: scale(1);
+            text-shadow: 0 0 20px rgba(255,215,0,0.06);
+        }
+        .lyric-line.current::before {
+            content: '♪';
+            position: absolute;
+            left: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.55em;
+            color: #ffd700;
+            opacity: 0.7;
+            animation: lyricShine 1.5s ease-in-out infinite;
+        }
+        @keyframes lyricShine {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        .lyric-line.future {
+            color: rgba(201,209,217,0.08);
+            transform: scale(0.88);
+        }
+
+        .lyric-line.instrumental-active {
+            color: rgba(255, 215, 0, 0.4);
+            font-style: italic;
+            font-size: 0.85em;
+            transform: scale(1);
+            animation: instrumentalPulse 2s ease-in-out infinite;
+        }
+        .lyric-line.instrumental-active::before {
+            content: none;
+        }
+        @keyframes instrumentalPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .lyric-section-title {
+            text-align: left;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75em;
+            color: rgba(255,215,0,0.25);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 24px 0 12px;
+            transition: all 0.8s ease;
+        }
+        .lyric-section-title.active {
+            color: rgba(255,215,0,0.5);
+        }
+
+        /* Panel toggle trigger — the music player doubles as trigger */
+        .lyrics-panel-trigger {
+            cursor: pointer;
+        }
+
+        /* ── Panel responsive ── */
+        .lyrics-panel.open ~ .messages,
+        .lyrics-panel.open ~ .hero {
+            margin-right: 0;
+        }
+
+        @media (max-width: 900px) {
+            .lyrics-panel { width: 320px; }
+        }
+        @media (max-width: 700px) {
+            .lyrics-panel {
+                width: 100%;
+                border-left: none;
+            }
+            .lyrics-panel-body::before,
+            .lyrics-panel-body::after {
+                height: 40px;
+            }
+            .lyrics-panel-inner { padding: 60px 18px 60px; }
+            .lyric-line { font-size: 0.9em; }
+            .lyric-line.current { font-size: 1em; }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .bubble-wrap { max-width: 100%; }
+            .message-card:nth-child(odd) .bubble-wrap,
+            .message-card:nth-child(even) .bubble-wrap {
+                margin: 0;
+            }
+            .message-card:nth-child(odd) .bubble,
+            .message-card:nth-child(even) .bubble {
+                border-radius: 20px;
+            }
+            .bubble { padding: 18px 20px; font-size: 0.9em; }
+            .hero { min-height: 90vh; padding-top: 80px; }
+        }
+
+        @media (max-width: 400px) {
+            .nav-bar { gap: 12px; font-size: 0.76em; }
+            .nav-bar .nav-back { position: static; }
+        }
+
+        /* ── Print ── */
+        @media print {
+            .nav-bar { display: none; }
+            .hero-hearts { display: none; }
+            .message-card { opacity: 1 !important; transform: none !important; }
+            .scroll-indicator { display: none; }
+        }
+
+        /* ── Community Art Banner ── */
+        .community-art {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(255, 105, 180, 0.08);
+        }
+        .community-art img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.08);
+        }
+        .community-art-caption {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.78em;
+            color: #4a5a6a;
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .community-art { margin: -10px auto 24px; }
+        }
+        /* ── Breadcrumbs ── */
+        .breadcrumbs {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--text-dim);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+            z-index: 1;
+        }
+        .breadcrumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .breadcrumbs a:hover { color: var(--gold); }
+        .breadcrumbs .bc-sep {
+            margin: 0 8px;
+            color: var(--text-dim);
+        }
+        .breadcrumbs .bc-current {
+            color: var(--text-dim);
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 40px 20px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-grid {
+            max-width: 700px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .footer-col h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 4px;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom {
+            max-width: 700px;
+            margin: 0 auto;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ─── Navigation ─── -->
+    <nav class="nav-bar">
+        <a href="/">🏰 259</a>
+        <a href="/kvk-172/prep.html">⚔️ KVK vs 172</a>
+        <a href="/kvk-219/prep.html">⚔️ KVK vs 219</a>
+        <a href="/thank-you-cindy.html" class="nav-active">❤️ Cindy</a>
+    </nav>
+
+    <!-- ─── Breadcrumbs ─── -->
+    <div class="breadcrumbs">
+        <a href="/">🏰 Kingdom 259</a>
+        <span class="bc-sep">›</span>
+        <span class="bc-current">❤️ Thank You Cindy</span>
+    </div>
+
+    <!-- ─── Hero ─── -->
+    <section class="hero">
+        <div class="hero-hearts">
+            <span>💖</span><span>💛</span><span>💕</span><span>💗</span><span>🩷</span>
+            <span>❤️</span><span>💝</span><span>💖</span><span>💗</span><span>💕</span>
+        </div>
+
+        <div class="hero-emoji">🌟</div>
+        <h1>Thank You, Cindy</h1>
+        <div class="hero-sub">You are truly one of a kind</div>
+        <p class="hero-desc">
+            From all of us in Alliance LoL &amp; Kingdom 259 — a small collection of heartfelt messages
+            to honor the incredible HR who holds this family together.
+        </p>
+
+        <div class="scroll-indicator">
+            <span class="arrow">↓</span>
+            <span>scroll to read</span>
+        </div>
+    </section>
+
+    <!-- ─── Community Art ─── -->
+    <div class="community-art">
+        <img src="/community-art.jpg" alt="Our LoL family — a gathering of misfits and heroes" loading="lazy">
+    </div>
+
+    <!-- ─── Messages ─── -->
+    <section class="messages" id="messages">
+        <div class="messages-header">
+            <h2>💌 Messages of Gratitude</h2>
+            <p>Each one from the heart</p>
+        </div>
+
+        <div class="messages-list">
+            <!-- 1: Overhate -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hey Cyndy, I just wanted to take a moment to recognize all the hard work you've been putting in lately. Your dedication doesn't go unnoticed, and it makes a huge difference to the whole LoL alliance. I'm so proud to be part of this team with you!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💪</span>
+                            <span class="sender-name">Overhate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2: Hotdog -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy you legend! We know how serious you take the HR role and how dedicated you are to LoL and I just want to say that we really appreciate all the hard work and extra hours you've put in. You are the best HR anyone could ask for and I couldn't be happier and prouder to be your teammate! I will happily make you a hot dog anytime :)
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌭</span>
+                            <span class="sender-name">Hotdog</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3: Marki -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi cindy! giving this moment, may we appreciate the effort, time, and dedication that u gave in to this alliance, we are so happy and proud for the hard work you made, as the HR of LoL (please don't skip meals just for packs 😆)
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💚</span>
+                            <span class="sender-name">Marki</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4: Robster -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy, I cannot begin to imagine the time you've put into getting the right people for LoL and #259, but the results speak for themselves. You're doing an amazing job. Thank you for all you do.
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🔷</span>
+                            <span class="sender-name">Robster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5: Skywalker -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hey Cindy. You have been awesome carrying the HR responsibilities for LOL and even #259. We all come here to chill and relax but its full on work for you which is truly amazing and selfless.<br><br>
+                            I remember once you told us one member rejected joining LOL because it felt like a job interview. Truly 😂😂😂<br><br>
+                            Keep up the good work. We really appreciate you Cindy!!! Love and Hugs ~ Sky
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌟</span>
+                            <span class="sender-name">Skywalker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6: Diane -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy , the whole of 259 thanks appreciates and gets to enjoy all of your hard work . Thank you for everything you do xxxx
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌸</span>
+                            <span class="sender-name">Diane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7: Nikea -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hello dear Cindy, you are one of the sweetest and most incredible people I have had the opportunity to meet in here, and I don't know what 259 (or the basement!) would do without you. You're amazing, and I can't wait to read your mystery stories! I already have wine and popcorn ready. Love you so much!! - Noobkea
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🦄</span>
+                            <span class="sender-name">Nikea (Noobkea)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8: UÇURUM -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy harika bir insansın başarılı ve güçlü birisisin seni tanımak çok güzel ve bu duyguyu yaşattığın için her şey için teşekkür ederim 🙂
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💫</span>
+                            <span class="sender-name">UÇURUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9: turk -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Sevgili cindy, seni hiç görmesem tanımasam da yaptığın her şey benim için ve ittifakım için. Bu yüzden seviliyorsun. Teşekkür ederim. İyi ki varsın
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🫶</span>
+                            <span class="sender-name">Turk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10: Eva -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Sis Cindy 💛<br><br>Thank you for everything you've done for this server. You've given so much time, effort, and care without ever asking for anything in return. You're honestly one of the biggest reasons this server is what it is today. We appreciate you more than words can say.
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💛</span>
+                            <span class="sender-name">Eva</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11: batman -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy<br><br>You're one of those people who quietly does so much for everyone, and I don't think we say thank you enough. From helping with transfers to always being there when someone needs support, you make things easier for so many people.<br><br>Thank you for your kindness, patience, and all the hard work you put in behind the scenes. Our LoL family is lucky to have you, and we're lucky to know you! ✨
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🦇</span>
+                            <span class="sender-name">Batman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12: Prae -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy<br><br>Thank you for everything you've done for LoL. Your dedication as HR, your support during transfers, and your willingness to help everyone have made a real difference to our community.<br><br>We truly appreciate all your hard work, kindness, and patience. Wishing you happiness, success, and all the best in everything you do. Thank you for being such an important part of our LoL family
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">⭐</span>
+                            <span class="sender-name">Prae</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13: Flux -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy,<br><br>Thank you so much for staying with us through all the game drama, having you here means the world. I'm so grateful for all the love and hard work you put into handling transfers and helping this family, especially since I know you have a busy real life to balance too. Thank you for being our constant, caring pillar. We are so incredibly lucky to have you, and you are appreciated more than words can say!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">⚡</span>
+                            <span class="sender-name">Flux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14: Wokk -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy,<br><br>Even though I've only been with LoL for a few days, you've already helped make it feel like home. I really admire the hard work, dedication, and positivity you bring to the community. Thank you for everything you do behind the scenes and for all the support you give to everyone. Keep being awesome, you truly make a difference, and LoL is lucky to have you!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🐾</span>
+                            <span class="sender-name">Wokk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15: IKARIKNOT -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy, I want to thank you for taking care of us all and supporting us with your messages and advice. You're an important part of the LoL family, and I want you to know that we're here for you anytime. Thank you so much!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🎯</span>
+                            <span class="sender-name">IKARIKNOT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16: mad cactus -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Good job cindy keep up the good work!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌵</span>
+                            <span class="sender-name">Mad Cactus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 17: Zeka -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy,<br><br>Thank you for everything. You know I'm not good at romance. Just know that we love you.
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🧠</span>
+                            <span class="sender-name">Zeka</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18: Dangunit -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Thank you Cindy for all the hard work for our LoL family, we really appreciate the efforts you put in..
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🤘</span>
+                            <span class="sender-name">Dangunit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19: Raving -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy — The impact you've had since becoming the transfer supremo is incredible. You've brought so many lovely people over and have guarded our server's culture so well. Thank you.
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🦸</span>
+                            <span class="sender-name">Raving</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20: //MW -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy,<br><br>I just wanted to thank you for being so welcoming during Borja's and my transfer to Server 259. Your support and positive attitude made the transition much smoother for us, and it was truly appreciated.<br><br>I also want to recognize the tremendous amount of hard work you put in every day. Considering the sheer number of interactions you handle, it's impressive how consistently helpful and approachable you remain.<br><br>Thank you for everything you do!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌍</span>
+                            <span class="sender-name">MW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 21: -toni -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy, Cindy my lovely Cindy, you truly are the most beautiful flower in our LoL garden. Really hoping that you stay with us forever. Thank you for your good humor and hard work for the better of LoL, we can never thank you enough. Hope I can hear you sing. Kiss Kiss 😘😘
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌸</span>
+                            <span class="sender-name">toni</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 22: [LoL]UÇURUM -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy harika bir insansın, başarılı ve güçlü birisisin. Seni tanımak çok güzel ve bu duyguyu yaşattığın için her şey için teşekkür ederim 🙂
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🏔️</span>
+                            <span class="sender-name">UÇURUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 23: jillpy -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy, I think we can all agree that what you're doing for us and the kingdom is amazing work and we can't thank you enough. The way you filter for great people (even though I slipped by 😉) is amazing and it makes this kingdom great. Thank you so, so much for everything and please keep on being there for us — no one could do what you're doing!!!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🦋</span>
+                            <span class="sender-name">Jillpy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 24: Ram -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Cindy,<br><br>I wanted to thank you for the extraordinary lengths you go to in recruiting and coordinating transfers, not just for LoL but for the wider server. You really are a superstar and go above and beyond to find the right people to join our happy little group.<br><br>We really would be lost without your dedication<br><br>Thank you for everything you do, and for the amazing amount of time and help you give 😊
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🙏</span>
+                            <span class="sender-name">Ram</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 25: -DP -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Cindy, without you, 259 isn't what it is right now. Without you, LoL isn't the same. We're all so grateful for the energy and time you invest here. You're such a wonderful person. We simply have to say thank you for everything!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🫡</span>
+                            <span class="sender-name">DP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 26: SynthX -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hello Cindy!!<br><br>Thank you our queen HR for handling not only the transfer, but also for putting up with the noobs 😜. Keep being lively and lovely!!! May kiss ka sakin
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🎮</span>
+                            <span class="sender-name">SynthX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 27: MythX -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            CINDYYYY YOU'VE BEEN A GREAT HELP TO US AND ONE OF THE PEOPLE THAT BROUGHT JOY TO LoL. YOUR COUNTLESS EFFORTS WILL ALWAYS MEAN SO MUCH TO US AND WE ARE GRATEFUL FOR YOU BEING PART OF LoL. WE POWERPUFFS DEEPLY APPRECIATE YOU!! LOVE YOU CINDY!!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💖</span>
+                            <span class="sender-name">MythX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 28: Jiya -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hello Cindy!<br><br>I haven't been here as long as a lot of people but you were always someone I know was very dependable (the moment you started keeping track of the animals). From the way you manage the academy, you're so fricking amazing! When I grow up, I want to be like you XD<br><br>I hope you're stuck with us forever and ever. All the love &lt;3
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🌟</span>
+                            <span class="sender-name">Jiya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 29: Czess -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Thanks Cindy for the awesome work, keep it up and may the force be with you!!!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">⭐</span>
+                            <span class="sender-name">Czess</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 30: Willow -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            My dear Cindy - you have been my sister since day one and always looking out for me and helping make sure Might was nice to me 😅 You're the glue that keeps our family sane and in happy spirits and we wouldn't survive or thrive without you! 💗
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💗</span>
+                            <span class="sender-name">Willow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 31: Donquixote -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            Hi Boss, Donquixote here. I may not be as active or as chatty as the noobs in the alliance chat, but I want to tell you how much I really appreciate you.<br><br>Thank you for handling endless sheets during the transfer event, answering our questions for the nth time, reminding us about every event in the Academy we definitely "forgot," and somehow staying patient through it all.<br><br>We truly appreciate your hard work, dedication, and superhuman ability to deal with us every day. May your pillow stay cool on both sides, your coffee stay hot, your inbox stay manageable, and your meetings end early.<br><br>We love you, our dearest HR!
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">🏰</span>
+                            <span class="sender-name">Donquixote</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 32: Kisshy -->
+            <div class="message-card">
+                <div class="bubble-wrap">
+                    <div class="bubble">
+                        <div class="message-text">
+                            💖✨ D34r C1ndy L1n ✨💖<br><br>Th4nk y0u s0000 much f0r y0ur unw4v3r1ng d3d1c4t10n 4nd h4rd w0rk 1n m4n4g1ng th3 tr4nsf3r! 🏰<br>W3 trulY 4ppr3c14t3 4ll th3 t1m3, 3ff0rt, p4t13nc3, 4nd c4r3 y0u p0ur3d 1nt0 m4k1ng 3v3ryth1ng g0 sm00thly. Y0ur d3d1c4t10n d1dn't g0 unnot1c3d, 4nd w3'r3 r34lly gr4t3ful f0r 3v3ryth1ng y0u d1d f0r us. 💕✨<br>Fr0m th3 b0tt0m 0f 0ur h34rts, th4nk y0u f0r b31ng th3 r34l MVP 0f th1s tr4nsf3r! 🏆👑<br>W1th l0v3, r3sp3ct, 4nd l0ts 0f gr4t1tud3,
+                        </div>
+                        <div class="message-sender">
+                            <span class="sender-emoji">💖</span>
+                            <span class="sender-name">Kisshy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ─── Floating Lyrics Panel ─── -->
+    <div class="lyrics-panel" id="lyricsPanel">
+        <div class="lyrics-panel-header">
+            <div>
+                <h3>🎶 Home in Love</h3>
+                <div class="sub">Scrolls with the music</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <button class="lyrics-panel-close" id="lyricsClose">✕</button>
+            </div>
+        </div>
+        <div class="lyrics-panel-body" id="lyricsPanelBody">
+            <div class="lyrics-panel-inner" id="lyricsPanelInner"></div>
+        </div>
+    </div>
+
+    <!-- ─── Footer ─── -->
+    <div class="footer-section">
+        <div class="big-heart">💝</div>
+        <p>
+            From the <span class="highlight">Alliance LoL</span> family &middot; Kingdom 259
+            <br>
+            With love and gratitude, always 💛
+        </p>
+    </div>
+
+    <!-- ─── Hidden Audio Element ─── -->
+    <audio id="bgm" preload="auto" loop>
+        <source src="/Home.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ─── Autoplay Overlay (shown if browser blocks autoplay) ─── -->
+    <div class="music-play-overlay" id="autoplayOverlay">
+        <div class="music-play-overlay-inner">
+            <div class="big-icon">🎵</div>
+            <h3>A song for you, Cindy</h3>
+            <p>Tap to play &mdash; this one's for you 💛</p>
+            <button class="tap-btn" id="overlayPlayBtn">🎵 Play</button>
+        </div>
+    </div>
+
+    <!-- ─── Floating Music Player ─── -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-btn paused" id="musicBtn">
+            <span class="btn-icon">🎵</span>
+        </button>
+        <div class="music-info">
+            <span class="music-label">🎶 Song for Cindy</span>
+            <span class="music-title">Home</span>
+            <span class="music-status" id="musicStatus">tap to play</span>
+        </div>
+        <div class="music-vol-wrap">
+            <button class="music-vol-btn" id="volBtn">🔊</button>
+            <div class="music-vol-slider" id="volSlider">
+                <input type="range" id="volRange" min="0" max="1" step="0.05" value="0.25">
+            </div>
+        </div>
+        <div class="music-bars" id="musicBars">
+            <div class="bar inactive"></div>
+            <div class="bar inactive"></div>
+            <div class="bar inactive"></div>
+            <div class="bar inactive"></div>
+            <div class="bar inactive"></div>
+        </div>
+    </div>
+
+    <!-- ─── JavaScript ─── -->
+    <script>
+        (function() {
+            'use strict';
+
+            /* ══════════════════════════════════════════════
+               LYRICS DATA — absolute vocal onset timestamps
+               ══════════════════════════════════════════════ */
+            const lyricsData = [
+                { time: 2.24, text: "♩ Intro", section: "♩ Intro", instrumental: true },
+                { time: 16.06, text: "Another name lights up the screen", section: "♪ Verse 1" },
+                { time: 19.49, text: "Another player in between" },
+                { time: 22.86, text: "A thousand miles, a different life" },
+                { time: 26.50, text: "Looking for somewhere to survive" },
+                { time: 30.28, text: "You say \"hello\", you make some space" },
+                { time: 33.52, text: "And somehow strangers find their place" },
+                { time: 37.24, text: "One small message, that's how it starts" },
+                { time: 40.55, text: "A little welcome, a lot of heart" },
+                { time: 45.68, text: "You never do it for the praise", section: "♪ Pre-Chorus" },
+                { time: 48.71, text: "You just keep showing up every day" },
+                { time: 52.74, text: "We came as strangers", section: "♪ Chorus" },
+                { time: 56.38, text: "We stayed as friends" },
+                { time: 59.89, text: "We came as strangers" },
+                { time: 63.53, text: "We stayed as friends" },
+                { time: 67.22, text: "One little message" },
+                { time: 70.46, text: "And it all began" },
+                { time: 72.85, text: "We found a home" },
+                { time: 74.71, text: "We found a home" },
+                { time: 76.53, text: "We found a home in LoL" },
+                { time: 78.5, text: "♪ ~ instrumental ~", instrumental: true },
+                { time: 87.53, text: "Late night chats and transfer lists", section: "♪ Verse 2" },
+                { time: 90.74, text: "Names and notes that never miss" },
+                { time: 94.09, text: "Taiwan mornings, coffee gone cold" },
+                { time: 97.86, text: "Taking care of everyone you know" },
+                { time: 101.01, text: "You build teams the way some people build dreams" },
+                { time: 104.92, text: "One by one and quietly" },
+                { time: 110.14, text: "And every person standing here tonight" },
+                { time: 112.95, text: "Is part of your story" },
+                { time: 117.07, text: "You never ask for anything", section: "♪ Pre-Chorus" },
+                { time: 119.98, text: "But somehow you give us everything" },
+                { time: 124.00, text: "We came as strangers", section: "♪ Chorus" },
+                { time: 127.16, text: "We stayed as friends" },
+                { time: 131.10, text: "We came as strangers" },
+                { time: 134.84, text: "We stayed as friends" },
+                { time: 138.28, text: "One little message" },
+                { time: 141.37, text: "And it all began" },
+                { time: 143.92, text: "We found a home" },
+                { time: 145.65, text: "We found a home" },
+                { time: 147.63, text: "We found a home in LoL" },
+                { time: 149.5, text: "♪ ~ instrumental ~", instrumental: true },
+                { time: 158.98, text: "For the cats that stole your heart", section: "♪ Bridge" },
+                { time: 162.78, text: "For the spreadsheets, works of art" },
+                { time: 166.19, text: "For the packs that cost so much" },
+                { time: 169.64, text: "You probably skipped another lunch" },
+                { time: 172.67, text: "For every newcomer feeling lost" },
+                { time: 175.86, text: "For every bridge that you helped cross" },
+                { time: 180.05, text: "You turned a game into something real" },
+                { time: 183.82, text: "A place where people belong" },
+                { time: 185.5, text: "♪ ~ instrumental ~", instrumental: true },
+                { time: 191.54, text: "We came as strangers", section: "♪ Final Chorus" },
+                { time: 194.69, text: "We stayed as friends" },
+                { time: 198.18, text: "We came as strangers" },
+                { time: 201.85, text: "We stayed as friends" },
+                { time: 205.36, text: "Across the oceans" },
+                { time: 208.73, text: "Across the world" },
+                { time: 210.82, text: "We found a home" },
+                { time: 212.78, text: "We found a home" },
+                { time: 214.89, text: "We found a home in LoL" },
+                { time: 221.84, text: "And if somebody asks us why", section: "♪ Outro" },
+                { time: 225.09, text: "This family still stands so strong" },
+                { time: 229.26, text: "We'll smile and say" },
+                { time: 232.10, text: "\"Cindy.\"" },
+                { time: 233.83, text: "And sing along." },
+                { time: 235.5, text: "♪ ~ instrumental ~", instrumental: true },
+            ];
+
+            /* ── Scroll-Reveal (Instant per-card fade on scroll) ── */
+            const cards = document.querySelectorAll('.message-card');
+            cards.forEach(card => {
+                const cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            card.classList.add('visible');
+                            cardObserver.unobserve(card);
+                        }
+                    });
+                }, { rootMargin: '200px 0px', threshold: 0 });
+                cardObserver.observe(card);
+            });
+
+            if (!('IntersectionObserver' in window)) {
+                cards.forEach(c => c.classList.add('visible'));
+            }
+
+            /* ── Music Player ── */
+            const audio = document.getElementById('bgm');
+            const musicBtn = document.getElementById('musicBtn');
+            const musicStatus = document.getElementById('musicStatus');
+            const overlay = document.getElementById('autoplayOverlay');
+            const overlayBtn = document.getElementById('overlayPlayBtn');
+            const bars = document.querySelectorAll('.music-bars .bar');
+            let isPlaying = false;
+            let animFrame = null;
+
+            function updateBars() {
+                if (!isPlaying) {
+                    bars.forEach(b => b.classList.add('inactive'));
+                    animFrame = null;
+                    return;
+                }
+                bars.forEach(b => {
+                    const h = 4 + Math.random() * 16;
+                    b.style.height = h + 'px';
+                    b.classList.remove('inactive');
+                });
+                animFrame = requestAnimationFrame(updateBars);
+            }
+
+            function playMusic() {
+                audio.volume = 0.25;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.className = 'music-btn playing';
+                    musicStatus.textContent = 'now playing ♪';
+                    musicStatus.className = 'music-status playing';
+                    overlay.classList.remove('active');
+                    updateBars();
+                    openLyricsPanel();
+                }).catch(() => {
+                    overlay.classList.add('active');
+                });
+            }
+
+            function pauseMusic() {
+                audio.pause();
+                isPlaying = false;
+                musicBtn.className = 'music-btn paused';
+                musicStatus.textContent = 'paused';
+                musicStatus.className = 'music-status';
+                bars.forEach(b => b.classList.add('inactive'));
+                if (animFrame) cancelAnimationFrame(animFrame);
+            }
+
+            function toggleMusic() {
+                if (isPlaying) { pauseMusic(); }
+                else { playMusic(); }
+            }
+
+            document.getElementById('musicPlayer').addEventListener('click', toggleMusic);
+
+            overlayBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                playMusic();
+            });
+
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) { playMusic(); }
+            });
+
+            // Show overlay on page load — let user decide when to play
+            overlay.classList.add('active');
+
+            audio.addEventListener('ended', function() {
+                isPlaying = false;
+                musicBtn.className = 'music-btn paused';
+                musicStatus.textContent = 'done ♪';
+                musicStatus.className = 'music-status';
+                bars.forEach(b => b.classList.add('inactive'));
+                if (animFrame) cancelAnimationFrame(animFrame);
+            });
+
+            /* ── Volume Control ── */
+            const volBtn = document.getElementById('volBtn');
+            const volSlider = document.getElementById('volSlider');
+            const volRange = document.getElementById('volRange');
+
+            volBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                volSlider.classList.toggle('open');
+                if (volSlider.classList.contains('open')) { volRange.focus(); }
+            });
+
+            volRange.addEventListener('input', function() {
+                audio.volume = parseFloat(this.value);
+                volBtn.textContent = this.value === '0' ? '🔇' :
+                    this.value < 0.4 ? '🔈' :
+                    this.value < 0.7 ? '🔉' : '🔊';
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.music-vol-wrap')) {
+                    volSlider.classList.remove('open');
+                }
+            });
+
+            /* ══════════════════════════════════════════════
+               LYRICS ENGINE — Zero-config, automatic sync
+               ══════════════════════════════════════════════ */
+            const lyricsPanel = document.getElementById('lyricsPanel');
+            const lyricsPanelBody = document.getElementById('lyricsPanelBody');
+            const lyricsPanelInner = document.getElementById('lyricsPanelInner');
+            const lyricsClose = document.getElementById('lyricsClose');
+            const allLyricLines = [];
+            const allSectionTitles = [];
+
+            // Build lyric DOM from lyricsData
+            function buildLyrics() {
+                lyricsPanelInner.innerHTML = '';
+
+                lyricsData.forEach((entry) => {
+                    if (entry.section) {
+                        const titleEl = document.createElement('div');
+                        titleEl.className = 'lyric-section-title';
+                        titleEl.textContent = entry.section;
+                        lyricsPanelInner.appendChild(titleEl);
+                        allSectionTitles.push(titleEl);
+                    }
+
+                    const lineEl = document.createElement('div');
+                    lineEl.className = 'lyric-line';
+                    lineEl.setAttribute('data-time', entry.time.toString());
+                    if (entry.instrumental) {
+                        lineEl.dataset.instrumental = '1';
+                    }
+                    lineEl.textContent = entry.text;
+                    lyricsPanelInner.appendChild(lineEl);
+                    allLyricLines.push(lineEl);
+                });
+            }
+            buildLyrics();
+
+            // Pure absolute sync — no offsets, no adjustments
+            function syncLyrics() {
+                if (!lyricsPanel.classList.contains('open')) return;
+                if (audio.paused) return;
+
+                const time = audio.currentTime;
+                let activeIdx = -1;
+
+                for (let i = allLyricLines.length - 1; i >= 0; i--) {
+                    const t = parseFloat(allLyricLines[i].getAttribute('data-time'));
+                    if (time >= t) {
+                        activeIdx = i;
+                        break;
+                    }
+                }
+
+                // Update line classes
+                allLyricLines.forEach((line, i) => {
+                    line.classList.remove('current', 'past', 'future', 'instrumental-active');
+                    if (i < activeIdx) {
+                        line.classList.add('past');
+                    } else if (i === activeIdx) {
+                        if (line.dataset.instrumental === '1') {
+                            line.classList.add('instrumental-active');
+                        } else {
+                            line.classList.add('current');
+                        }
+                    } else {
+                        line.classList.add('future');
+                    }
+                });
+
+                // Update section titles
+                allSectionTitles.forEach(t => t.classList.remove('active'));
+                let currentSection = null;
+                allSectionTitles.forEach((t) => {
+                    let nextEl = t.nextElementSibling;
+                    while (nextEl && !nextEl.classList.contains('lyric-line')) {
+                        nextEl = nextEl.nextElementSibling;
+                    }
+                    if (nextEl) {
+                        const sectionTime = parseFloat(nextEl.getAttribute('data-time'));
+                        if (time >= sectionTime) {
+                            currentSection = t;
+                        }
+                    }
+                });
+                if (currentSection) {
+                    currentSection.classList.add('active');
+                }
+
+                // Auto-scroll
+                if (activeIdx >= 0) {
+                    const line = allLyricLines[activeIdx];
+                    if (line) {
+                        const containerRect = lyricsPanelBody.getBoundingClientRect();
+                        const lineRect = line.getBoundingClientRect();
+                        const isVisible = lineRect.top >= containerRect.top &&
+                            lineRect.bottom <= containerRect.bottom;
+                        if (!isVisible) {
+                            line.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                }
+            }
+
+            // Wire up timeupdate
+            audio.removeEventListener('timeupdate', syncLyrics);
+            audio.addEventListener('timeupdate', syncLyrics);
+
+            // Also sync on seek and panel open
+            audio.addEventListener('seeked', syncLyrics);
+
+            const panelObserver = new MutationObserver(function(mutations) {
+                mutations.forEach(m => {
+                    if (m.type === 'attributes' && m.attributeName === 'class') {
+                        if (lyricsPanel.classList.contains('open')) {
+                            syncLyrics();
+                        }
+                    }
+                });
+            });
+            panelObserver.observe(lyricsPanel, { attributes: true });
+
+            // Reset on end
+            audio.addEventListener('ended', function() {
+                allLyricLines.forEach(l => {
+                    l.classList.remove('current', 'past', 'future', 'instrumental-active');
+                    l.classList.add('future');
+                });
+                allSectionTitles.forEach(t => t.classList.remove('active'));
+                lyricsPanelBody.scrollTop = 0;
+            });
+
+            // Open/Close panel
+            function openLyricsPanel() {
+                lyricsPanel.classList.add('open');
+            }
+
+            lyricsClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lyricsPanel.classList.remove('open');
+                allLyricLines.forEach(l => {
+                    l.classList.remove('current', 'past', 'future', 'instrumental-active');
+                });
+                allSectionTitles.forEach(t => t.classList.remove('active'));
+                lyricsPanelBody.scrollTop = 0;
+            });
+
+        })();
+    </script>
+
+    <!-- ─── Footer ─── -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🏰 Kingdom 259</h4>
+                <p style="color:var(--text-muted);font-size:12px;margin-top:4px;">Alliance LoL · Kingshot</p>
+            </div>
+            <div class="footer-col">
+                <h4>⚔️ KVK vs 172</h4>
+                <a href="/kvk-172/prep.html">Prep Phase</a>
+                <a href="/kvk-172/power.html">Power Increase</a>
+            </div>
+            <div class="footer-col">
+                <h4>⚔️ KVK vs 219</h4>
+                <a href="/kvk-219/prep.html">Prep Phase</a>
+                <a href="/kvk-219/power.html">Power Increase</a>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <a href="/thank-you-cindy.html">❤️ Thank You Cindy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Kingdom 259 · LoL Alliance · Data sourced from in-game rankings</p>
+        </div>
+    </footer>
+
+</body>
+</html>

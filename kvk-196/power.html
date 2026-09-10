@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVK vs 196 Power Increase Leaderboard</title>
+    <meta property="og:title" content="KVK vs 196 Power Increase Leaderboard">
+    <meta property="og:description" content="Kingdom 259 — Who gained the most power during KVK prep">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👑</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #0b0f19;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.08);
+            --border-gold: rgba(212,168,67,0.3);
+            --gold: #ffd700;
+            --gold-light: #d4a843;
+            --gold-dim: #b8860b;
+            --text: #c9d1d9;
+            --text-bright: #e6edf3;
+            --text-muted: #6b7b8d;
+            --text-dim: #4a5568;
+            --crimson: #a52a2a;
+            --crimson-light: #d44444;
+            --medal-gold: #ffd700;
+            --medal-silver: #c0c0c0;
+            --medal-bronze: #cd7f32;
+            --shadow: rgba(0,0,0,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* ---- Navigation ---- */
+        .nav-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 42px;
+            background: rgba(11,15,25,0.92);
+            border-bottom: 1px solid rgba(255,215,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            font-size: 0.82em;
+            font-weight: 500;
+        }
+        .nav-bar a {
+            color: #6b7b8d;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-bar a:hover { color: #ffd700; }
+        .nav-bar .nav-active { color: #ffd700; font-weight: 600; }
+
+        body {
+            padding-top: 42px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0b0f19;
+            color: #c9d1d9;
+            min-height: 100vh;
+        }
+
+        /* Subtle background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.04) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============ BREADCRUMBS ============ */
+        .breadcrumbs {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+        }
+        .breadcrumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .breadcrumbs a:hover { color: var(--gold); }
+        .breadcrumbs .bc-sep {
+            color: var(--text-dim);
+            margin: 0 6px;
+        }
+        .breadcrumbs .bc-current {
+            color: var(--text-dim);
+        }
+
+        /* ============ KVK TABS ============ */
+        .kvk-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .kvk-tab {
+            display: inline-block;
+            padding: 8px 22px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            transition: all 0.2s;
+        }
+        .kvk-tab:hover {
+            color: var(--gold);
+            border-color: rgba(255,215,0,0.3);
+        }
+        .kvk-tab.active {
+            color: var(--bg);
+            background: var(--gold);
+            border-color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 48px 20px 36px;
+            margin-bottom: 28px;
+        }
+
+        .header-icon {
+            font-size: 3em;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 50%, #ff8c00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            color: #6b7b8d;
+            font-size: 1em;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .header .date-badge {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 16px;
+            background: rgba(255,215,0,0.08);
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 20px;
+            color: #ffd700;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .stat-value {
+            font-size: 1.6em;
+            font-weight: 800;
+            color: #e6edf3;
+        }
+
+        .stat-value.gold { color: #ffd700; }
+
+        .stat-label {
+            font-size: 0.72em;
+            color: #6b7b8d;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-group {
+            display: flex;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            color: #6b7b8d;
+            cursor: pointer;
+            font-size: 0.88em;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            color: #c9d1d9;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .tab-btn.active {
+            color: #0b0f19;
+            background: #ffd700;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 240px;
+            padding: 10px 16px 10px 38px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            color: #c9d1d9;
+            border-radius: 10px;
+            font-size: 0.88em;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-box input::placeholder { color: #4a5568; }
+
+        .search-box input:focus {
+            border-color: rgba(255,215,0,0.3);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4a5568;
+            font-size: 0.9em;
+        }
+
+        /* Table */
+        .table-wrapper {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 56px 1fr 130px 130px 130px 90px;
+            padding: 14px 20px;
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.72em;
+            font-weight: 700;
+            color: #6b7b8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .table-header span:not(:first-child) { text-align: right; }
+
+        .row {
+            display: grid;
+            grid-template-columns: 56px 1fr 130px 130px 130px 90px;
+            padding: 13px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            align-items: center;
+            transition: background 0.15s;
+        }
+
+        .row:last-child { border-bottom: none; }
+
+        .row:hover {
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Top 3 rows get subtle glow */
+        .row.rank-1 {
+            background: linear-gradient(90deg, rgba(255,215,0,0.06) 0%, transparent 100%);
+        }
+        .row.rank-2 {
+            background: linear-gradient(90deg, rgba(192,192,192,0.04) 0%, transparent 100%);
+        }
+        .row.rank-3 {
+            background: linear-gradient(90deg, rgba(205,127,50,0.04) 0%, transparent 100%);
+        }
+
+        .row.rank-1:hover { background: rgba(255,215,0,0.08); }
+        .row.rank-2:hover { background: rgba(192,192,192,0.06); }
+        .row.rank-3:hover { background: rgba(205,127,50,0.06); }
+
+        .rank-num {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #4a5568;
+        }
+
+        .row.rank-1 .rank-num { color: #ffd700; }
+        .row.rank-2 .rank-num { color: #c0c0c0; }
+        .row.rank-3 .rank-num { color: #cd7f32; }
+
+        .medal { margin-right: 4px; }
+
+        .player-name {
+            font-weight: 600;
+            color: #e6edf3;
+            font-size: 0.95em;
+        }
+
+        .cell-right {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-family: 'Inter', monospace;
+        }
+
+        .initial-val { color: #6b7b8d; font-weight: 500; }
+        .after-val { color: #c9d1d9; font-weight: 600; }
+
+        .gain-val {
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+
+        .gain-positive {
+            color: #3fb950;
+        }
+
+        .gain-big {
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.15);
+        }
+
+        .gain-mega {
+            color: #ffaa00;
+            text-shadow: 0 0 20px rgba(255,170,0,0.2);
+        }
+
+        .gain-negative { color: #f85149; }
+
+        .pct-val {
+            font-weight: 700;
+            font-size: 0.85em;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .pct-tier-1 { color: #ffd700; background: rgba(255,215,0,0.1); }
+        .pct-tier-2 { color: #3fb950; background: rgba(63,185,80,0.1); }
+        .pct-tier-3 { color: #58a6ff; background: rgba(88,166,255,0.08); }
+        .pct-tier-4 { color: #6b7b8d; background: rgba(107,123,141,0.08); }
+        .pct-negative { color: #f85149; background: rgba(248,81,73,0.1); }
+
+        .no-results {
+            text-align: center;
+            padding: 48px;
+            color: #4a5568;
+            font-size: 1em;
+        }
+
+        /* ============ SITE FOOTER ============ */
+        .site-footer {
+            margin-top: 60px;
+            padding: 40px 20px 24px;
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 28px;
+            text-align: left;
+        }
+        .footer-col h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.82em;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .footer-col p,
+        .footer-col a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            line-height: 1.8;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+            color: var(--text-dim);
+            font-size: 0.75em;
+        }
+
+        @media (max-width: 900px) {
+            .table-header, .row {
+                grid-template-columns: 48px 1fr 100px 100px 80px;
+                font-size: 0.85em;
+            }
+            .col-initial, .table-header span:nth-child(3), .row > *:nth-child(3) { display: none; }
+            .header h1 { font-size: 1.6em; }
+        }
+
+        @media (max-width: 700px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 500px) {
+            .table-header, .row {
+                grid-template-columns: 42px 1fr 80px 70px;
+            }
+            .col-after, .table-header span:nth-child(4), .row > *:nth-child(4) { display: none; }
+            .stat-card { min-width: 100px; padding: 12px 16px; }
+        }
+
+        @media (max-width: 450px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/">🏰 259</a>
+        <a href="/kvk-172/prep.html">⚔️ KVK vs 172</a>
+        <a href="/kvk-196/prep.html" class="nav-active">⚔️ KVK vs 196</a>
+        <a href="/kvk-219/prep.html">⚔️ KVK vs 219</a>
+        <a href="/thank-you-cindy.html">❤️ Cindy</a>
+    </nav>
+    <div class="container">
+
+        <!-- ====== BREADCRUMBS ====== -->
+        <div class="breadcrumbs">
+            <a href="/">🏰 Kingdom 259</a>
+            <span class="bc-sep">›</span>
+            <a href="/kvk-196/prep.html">KVK vs 196</a>
+            <span class="bc-sep">›</span>
+            <span class="bc-current">Power Increase</span>
+        </div>
+
+        <!-- ====== KVK TABS ====== -->
+        <div class="kvk-tabs">
+            <a href="/kvk-196/prep.html" class="kvk-tab">⚔️ Prep Phase</a>
+            <a href="/kvk-196/power.html" class="kvk-tab active">📈 Power Increase</a>
+        </div>
+
+        <div class="header">
+            <div class="header-icon">⚔️</div>
+            <h1>Power Increase Leaderboard</h1>
+            <div class="subtitle">KingShot Alliance — KVK Power Growth</div>
+            <div class="date-badge">📅 July 13 → July 18, 2026</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="s-players">—</div>
+                <div class="stat-label">Players</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value gold" id="s-total">—</div>
+                <div class="stat-label">Total Gained</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="s-avg">—</div>
+                <div class="stat-label">Avg Gain</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="tab-group">
+                <button class="tab-btn active" data-tab="absolute">💰 By Power</button>
+                <button class="tab-btn" data-tab="percentage">📈 By %</button>
+            </div>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search" placeholder="Search player...">
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <div class="table-header">
+                <span>#</span>
+                <span>Player</span>
+                <span class="col-initial">Initial</span>
+                <span class="col-after">After</span>
+                <span>Gain</span>
+                <span>% Gain</span>
+            </div>
+            <div id="tbody"></div>
+        </div>
+
+        <!-- ====== SITE FOOTER ====== -->
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>🏰 Kingdom 259</h4>
+                    <p>Alliance LoL · Kingshot</p>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 172</h4>
+                    <a href="/kvk-172/prep.html">Prep Phase</a>
+                    <a href="/kvk-172/power.html">Power Increase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 219</h4>
+                    <a href="/kvk-219/prep.html">Prep Phase</a>
+                    <a href="/kvk-219/power.html">Power Increase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>⚔️ KVK vs 196</h4>
+                    <a href="/kvk-196/prep.html">Prep Phase</a>
+                    <a href="/kvk-196/power.html">Power Increase</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="/thank-you-cindy.html">❤️ Thank You Cindy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Kingdom 259 · LoL Alliance · Data sourced from in-game rankings</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const P = [{"n":"Baby Deus","i":1023860204,"a":1037128994,"g":13268790,"p":1.3},{"n":"Kendra","i":774530998,"a":778162828,"g":3631830,"p":0.5},{"n":"Zeka","i":671665182,"a":709225150,"g":37559968,"p":5.6},{"n":"Phatty","i":623167978,"a":664136977,"g":40968999,"p":6.6},{"n":"FluxX","i":604190510,"a":610943880,"g":6753370,"p":1.1},{"n":"Diane EN MOM","i":580369334,"a":590788347,"g":10419013,"p":1.8},{"n":"Wokk","i":573915563,"a":584838278,"g":10922715,"p":1.9},{"n":"Wizan","i":571470815,"a":588271361,"g":16800546,"p":2.9},{"n":"Dumbo","i":570202647,"a":601667129,"g":31464482,"p":5.5},{"n":"9527","i":511730613,"a":518767274,"g":7036661,"p":1.4},{"n":"Pharita","i":505984292,"a":532342638,"g":26358346,"p":5.2},{"n":"Lord_Dexter","i":451793182,"a":471273589,"g":19480407,"p":4.3},{"n":"MadMAX","i":445694132,"a":450920490,"g":5226358,"p":1.2},{"n":"NumaN67","i":442148443,"a":478307416,"g":36158973,"p":8.2},{"n":"要你命3000","i":437612722,"a":458768920,"g":21156198,"p":4.8},{"n":"Cosmic Snoopy","i":433746774,"a":453114147,"g":19367373,"p":4.5},{"n":"Dangunit","i":432180082,"a":461803200,"g":29623118,"p":6.9},{"n":"Jonzn","i":431232821,"a":472390817,"g":41157996,"p":9.5},{"n":"Gengarkhan","i":419581488,"a":444516753,"g":24935265,"p":5.9},{"n":"LUMIÈRE","i":412511950,"a":425967807,"g":13455857,"p":3.3},{"n":"PT Toni","i":409075739,"a":413512336,"g":4436597,"p":1.1},{"n":"Sir James","i":404483102,"a":422145992,"g":17662890,"p":4.4},{"n":"Eva & Neko","i":404295703,"a":413244865,"g":8949162,"p":2.2},{"n":"EREIMUL","i":400890026,"a":406469564,"g":5579538,"p":1.4},{"n":"RavingPineapple","i":400635856,"a":418668134,"g":18032278,"p":4.5},{"n":"Kyoukai","i":398900226,"a":411589765,"g":12689539,"p":3.2},{"n":"jillpineapple","i":398896345,"a":416908714,"g":18012369,"p":4.5},{"n":"Daze","i":393605779,"a":406815310,"g":13209531,"p":3.4},{"n":"TӨGEЖӨЙ","i":385457093,"a":390645801,"g":5188708,"p":1.3},{"n":"Cindy Lin","i":376538269,"a":381864365,"g":5326096,"p":1.4},{"n":"MangKanor","i":375701707,"a":379707641,"g":4005934,"p":1.1},{"n":"flashback","i":372431033,"a":379112241,"g":6681208,"p":1.8},{"n":"DeathPhoenix","i":372324745,"a":387739782,"g":15415037,"p":4.1},{"n":"MythX","i":372234151,"a":413603034,"g":41368883,"p":11.1},{"n":"Diveranchu","i":370872153,"a":388719537,"g":17847384,"p":4.8},{"n":"Ziskia","i":368798465,"a":372938435,"g":4139970,"p":1.1},{"n":"Rinma","i":365367907,"a":378269152,"g":12901245,"p":3.5},{"n":"NoahLS181018","i":364292442,"a":374996820,"g":10704378,"p":2.9},{"n":"Turk","i":364272247,"a":375189319,"g":10917072,"p":3.0},{"n":"GriM26","i":360877904,"a":372389638,"g":11511734,"p":3.2},{"n":"myrddin","i":358706813,"a":380010417,"g":21303604,"p":5.9},{"n":"_MW_","i":353654091,"a":358958424,"g":5304333,"p":1.5},{"n":"Brori","i":351904813,"a":371968033,"g":20063220,"p":5.7},{"n":"AngeloPH","i":350236369,"a":359284081,"g":9047712,"p":2.6},{"n":"YankGrimWay","i":347315766,"a":352305040,"g":4989274,"p":1.4},{"n":"Etasn","i":346561307,"a":445794660,"g":99233353,"p":28.6},{"n":"PineappleBee","i":343516823,"a":350204032,"g":6687209,"p":1.9},{"n":"SKYWALKER","i":340095024,"a":347532395,"g":7437371,"p":2.2},{"n":"Pineappleyoyo","i":336649723,"a":356554575,"g":19904852,"p":5.9},{"n":"Ramscaleon","i":336181415,"a":354132923,"g":17951508,"p":5.3},{"n":"ginbo","i":333983594,"a":337160039,"g":3176445,"p":1.0},{"n":"MONSOON AU","i":331921418,"a":335122235,"g":3200817,"p":1.0},{"n":"Marioti83","i":330063609,"a":344567079,"g":14503470,"p":4.4},{"n":"NaughtyLee","i":329293897,"a":344342031,"g":15048134,"p":4.6},{"n":"Grim Amr","i":324440324,"a":331388695,"g":6948371,"p":2.1},{"n":"Robster","i":321864148,"a":323578287,"g":1714139,"p":0.5},{"n":"Pau","i":320213282,"a":325326445,"g":5113163,"p":1.6},{"n":"ΛPΣ","i":315348185,"a":323654950,"g":8306765,"p":2.6},{"n":"Arno","i":315327323,"a":321868088,"g":6540765,"p":2.1},{"n":"M00nbeam","i":314658603,"a":326087880,"g":11429277,"p":3.6},{"n":"HotDogOfWar","i":311431823,"a":339903857,"g":28472034,"p":9.1},{"n":"Russ","i":310659766,"a":324611361,"g":13951595,"p":4.5},{"n":"Czeszej86","i":309807376,"a":319442831,"g":9635455,"p":3.1},{"n":"Wibble","i":309054574,"a":311657849,"g":2603275,"p":0.8},{"n":"SnOïl","i":306885870,"a":317245973,"g":10360103,"p":3.4},{"n":"Lil Vik","i":305701114,"a":312168033,"g":6466919,"p":2.1},{"n":"TonyKIPS","i":304657977,"a":320229368,"g":15571391,"p":5.1},{"n":"Shishi","i":303406596,"a":303779473,"g":372877,"p":0.1},{"n":"Gargamel","i":299850625,"a":314309151,"g":14458526,"p":4.8},{"n":"PapaShin","i":293473053,"a":303398791,"g":9925738,"p":3.4},{"n":"Mimi","i":290667220,"a":314285335,"g":23618115,"p":8.1},{"n":"OverHate","i":290565614,"a":299364842,"g":8799228,"p":3.0},{"n":"SynthX","i":288316127,"a":290427976,"g":2111849,"p":0.7},{"n":"Smurfsalot","i":282784167,"a":287625362,"g":4841195,"p":1.7},{"n":"Chrilli","i":282089849,"a":287537012,"g":5447163,"p":1.9},{"n":"NO 2 PINEAPPLE","i":278470515,"a":302355141,"g":23884626,"p":8.6},{"n":"RalphPH","i":276291764,"a":299343093,"g":23051329,"p":8.3},{"n":"jiyaseru","i":274230820,"a":273714848,"g":-515972,"p":-0.2},{"n":"IKARIKNOT","i":273021961,"a":276783492,"g":3761531,"p":1.4},{"n":"Marki Axolotl","i":272353793,"a":273185629,"g":831836,"p":0.3},{"n":"GriMsbane GsB","i":271478069,"a":283375348,"g":11897279,"p":4.4},{"n":"UÇURUM","i":268471771,"a":275910847,"g":7439076,"p":2.8},{"n":"Hello MoTo","i":264977058,"a":271589812,"g":6612754,"p":2.5},{"n":"TMK","i":263594564,"a":273267702,"g":9673138,"p":3.7},{"n":"GrimSaka","i":256052090,"a":261580341,"g":5528251,"p":2.2},{"n":"GAVIN","i":255018056,"a":273909494,"g":18891438,"p":7.4},{"n":"mayu","i":251950976,"a":288265062,"g":36314086,"p":14.4},{"n":"Slayer","i":245324236,"a":287271938,"g":41947702,"p":17.1},{"n":"Kisshhyy","i":242287532,"a":244910854,"g":2623322,"p":1.1},{"n":"BattleBanana","i":235034902,"a":236535878,"g":1500976,"p":0.6},{"n":"Piskot","i":216074015,"a":220338651,"g":4264636,"p":2.0},{"n":"Super Buu","i":193430480,"a":158093739,"g":-35336741,"p":-18.3},{"n":"Robster as well","i":189845893,"a":190701772,"g":855879,"p":0.5},{"n":"Elf Nikea","i":187530228,"a":190606895,"g":3076667,"p":1.6},{"n":"Fat Buu","i":171926142,"a":141598674,"g":-30327468,"p":-17.6},{"n":"Kid Buu","i":160413513,"a":165310027,"g":4896514,"p":3.1},{"n":"Truth Giver","i":3780310,"a":5361752,"g":1581442,"p":41.8},{"n":"KevLee","i":546465,"a":1272236,"g":725771,"p":132.8}];
+
+        const fmt = n => n.toLocaleString();
+        let tab = 'absolute';
+
+        function medal(r) {
+            if (r === 1) return '🥇';
+            if (r === 2) return '🥈';
+            if (r === 3) return '🥉';
+            return '';
+        }
+
+        function gainClass(g) {
+            if (g >= 50000000) return 'gain-mega';
+            if (g >= 20000000) return 'gain-big';
+            if (g >= 0) return 'gain-positive';
+            return 'gain-negative';
+        }
+
+        function pctClass(p) {
+            if (p < 0) return 'pct-negative';
+            if (p >= 15) return 'pct-tier-1';
+            if (p >= 8) return 'pct-tier-2';
+            if (p >= 4) return 'pct-tier-3';
+            return 'pct-tier-4';
+        }
+
+        function render(filter = '') {
+            let sorted = tab === 'absolute'
+                ? [...P].sort((a, b) => b.g - a.g)
+                : [...P].sort((a, b) => b.p - a.p);
+
+            if (filter) {
+                sorted = sorted.filter(p => p.n.toLowerCase().includes(filter.toLowerCase()));
+            }
+
+            const tbody = document.getElementById('tbody');
+            if (!sorted.length) {
+                tbody.innerHTML = '<div class="no-results">No players found</div>';
+                return;
+            }
+
+            tbody.innerHTML = sorted.map((p, i) => {
+                const r = i + 1;
+                const rankClass = r <= 3 ? `rank-${r}` : '';
+                return `<div class="row ${rankClass}">
+                    <span class="rank-num">${medal(r)}${r}</span>
+                    <span class="player-name">${p.n}</span>
+                    <span class="cell-right initial-val col-initial">${fmt(p.i)}</span>
+                    <span class="cell-right after-val col-after">${fmt(p.a)}</span>
+                    <span class="cell-right gain-val ${gainClass(p.g)}">${p.g >= 0 ? '+' : ''}${fmt(p.g)}</span>
+                    <span class="cell-right"><span class="pct-val ${pctClass(p.p)}">${p.p >= 0 ? '+' : ''}${p.p}%</span></span>
+                </div>`;
+            }).join('');
+
+            // Stats
+            const total = P.reduce((s, p) => s + p.g, 0);
+            const avg = Math.round(total / P.length);
+            document.getElementById('s-players').textContent = P.length;
+            document.getElementById('s-total').textContent = fmt(total);
+            document.getElementById('s-avg').textContent = fmt(avg);
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                tab = btn.dataset.tab;
+                render(document.getElementById('search').value);
+            });
+        });
+
+        document.getElementById('search').addEventListener('input', e => {
+            render(e.target.value);
+        });
+
+        render();
+    </script>
+</body>
+</html>

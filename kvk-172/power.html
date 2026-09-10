@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVK Power Increase — 259 vs 172</title>
+    <meta property="og:title" content="KVK Power Increase — 259 vs 172">
+    <meta property="og:description" content="Kingdom 259 vs 172 — Power gains during KVK prep">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>👑</text></svg>">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b0f19;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(212,168,67,0.3);
+  --gold: #ffd700;
+  --gold-light: #d4a843;
+  --gold-dim: #b8860b;
+  --text: #c9d1d9;
+  --text-bright: #e6edf3;
+  --text-muted: #6b7b8d;
+  --text-dim: #4a5568;
+  --crimson: #a52a2a;
+  --crimson-light: #d44444;
+  --medal-gold: #ffd700;
+  --medal-silver: #c0c0c0;
+  --medal-bronze: #cd7f32;
+  --shadow: rgba(0,0,0,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---- Navigation ---- */
+.nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 42px;
+  background: rgba(11,15,25,0.92);
+  border-bottom: 1px solid rgba(255,215,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  font-size: 0.82em;
+  font-weight: 500;
+}
+.nav-bar a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.nav-bar a:hover { color: var(--gold); }
+.nav-bar .nav-active { color: var(--gold); font-weight: 600; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 42px;
+}
+
+/* Subtle background glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.power-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ============ BREADCRUMBS ============ */
+.breadcrumbs {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--gold); }
+.breadcrumbs .bc-sep {
+  color: var(--text-dim);
+  margin: 0 6px;
+}
+.breadcrumbs .bc-current {
+  color: var(--text-dim);
+}
+
+/* ============ KVK TABS ============ */
+.kvk-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+.kvk-tab {
+  display: inline-block;
+  padding: 8px 22px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  transition: all 0.2s;
+}
+.kvk-tab:hover {
+  color: var(--gold);
+  border-color: rgba(255,215,0,0.3);
+}
+.kvk-tab.active {
+  color: var(--bg);
+  background: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* ============ HERO ============ */
+.hero {
+  text-align: center;
+  padding: 50px 20px 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(165,42,42,0.2);
+  color: var(--crimson-light);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border: 1px solid rgba(165,42,42,0.3);
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  color: var(--text-bright);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 50%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ============ STATS ROW ============ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold-dim);
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.stat-card .stat-value {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ============ CONTROLS ============ */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tab-group {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.88em;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.tab-btn:hover {
+  color: var(--text-bright);
+  background: var(--bg-card-hover);
+}
+
+.tab-btn.active {
+  color: #0b0f19;
+  background: var(--gold);
+  font-weight: 700;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  width: 240px;
+  padding: 10px 16px 10px 38px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 0.88em;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-box input::placeholder { color: var(--text-dim); }
+
+.search-box input:focus {
+  border-color: rgba(255,215,0,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 0.9em;
+  pointer-events: none;
+}
+
+/* ============ TABLE / LEADERBOARD ============ */
+.leaderboard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.lb-head {
+  background: linear-gradient(135deg, #1a1520, #1a1225);
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 56px 1fr 130px 130px 130px 90px;
+  gap: 0;
+  align-items: center;
+}
+
+.lb-head span {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.lb-head span:not(:first-child) { text-align: right; }
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 130px 130px 130px 90px;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+
+.lb-row:last-child { border-bottom: none; }
+.lb-row:hover { background: var(--bg-card-hover); }
+
+/* Top 3 rows */
+.lb-row.gold-row {
+  background: linear-gradient(90deg, rgba(255,215,0,0.08), transparent);
+  border-left: 4px solid var(--medal-gold);
+}
+.lb-row.silver-row {
+  background: linear-gradient(90deg, rgba(192,192,192,0.08), transparent);
+  border-left: 4px solid var(--medal-silver);
+}
+.lb-row.bronze-row {
+  background: linear-gradient(90deg, rgba(205,127,50,0.08), transparent);
+  border-left: 4px solid var(--medal-bronze);
+}
+
+.lb-rank {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--text-dim);
+}
+
+.gold-row .lb-rank { color: var(--medal-gold); font-size: 18px; }
+.silver-row .lb-rank { color: var(--medal-silver); font-size: 18px; }
+.bronze-row .lb-rank { color: var(--medal-bronze); font-size: 18px; }
+
+.medal { font-size: 16px; margin-right: 2px; }
+
+.lb-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-bright);
+}
+
+.cell-right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.cell-right.initial-val { color: var(--text-muted); font-weight: 500; }
+.cell-right.after-val { color: var(--text); font-weight: 600; font-family: 'Cinzel', serif; }
+
+.cell-right.gain-val {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.gain-positive { color: #3fb950; }
+.gain-big {
+  color: var(--gold-light);
+  text-shadow: 0 0 20px rgba(212,168,67,0.15);
+}
+.gain-mega {
+  color: #ffaa00;
+  text-shadow: 0 0 20px rgba(255,170,0,0.2);
+}
+.gain-negative { color: var(--crimson-light); }
+
+.cell-right .pct-val {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.pct-tier-1 { color: var(--medal-gold); background: rgba(255,215,0,0.1); }
+.pct-tier-2 { color: #3fb950; background: rgba(63,185,80,0.1); }
+.pct-tier-3 { color: #58a6ff; background: rgba(88,166,255,0.08); }
+.pct-tier-4 { color: var(--text-muted); background: rgba(107,123,141,0.08); }
+.pct-negative { color: var(--crimson-light); background: rgba(165,42,42,0.1); }
+
+.no-results {
+  text-align: center;
+  padding: 48px;
+  color: var(--text-dim);
+  font-size: 1em;
+}
+
+/* ============ SITE FOOTER ============ */
+.site-footer {
+  margin-top: 60px;
+  padding: 40px 20px 24px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.footer-col p,
+.footer-col a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  line-height: 1.8;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  color: var(--text-dim);
+  font-size: 0.75em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .lb-head, .lb-row {
+    grid-template-columns: 48px 1fr 100px 100px 80px;
+    padding: 12px 16px;
+  }
+  .col-initial, .lb-head span:nth-child(3), .lb-row > *:nth-child(3) { display: none; }
+  .hero h1 { font-size: 28px; }
+  .stat-card .stat-value { font-size: 22px; }
+}
+
+@media (max-width: 700px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .lb-head, .lb-row {
+    grid-template-columns: 42px 1fr 80px 70px;
+    padding: 10px 12px;
+  }
+  .col-after, .lb-head span:nth-child(4), .lb-row > *:nth-child(4) { display: none; }
+  .stat-card { padding: 14px 12px; }
+  .stat-card .stat-value { font-size: 18px; }
+  .controls { flex-direction: column; }
+}
+
+@media (max-width: 450px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ LEGACY FOOTER ============ */
+.power-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.power-footer strong {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+}
+
+</style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/">🏰 259</a>
+        <a href="/kvk-172/prep.html" class="nav-active">⚔️ KVK vs 172</a>
+        <a href="/kvk-219/prep.html">⚔️ KVK vs 219</a>
+        <a href="/thank-you-cindy.html">❤️ Cindy</a>
+    </nav>
+
+<div class="power-wrap">
+
+  <!-- ====== BREADCRUMBS ====== -->
+  <div class="breadcrumbs">
+    <a href="/">🏰 Kingdom 259</a>
+    <span class="bc-sep">›</span>
+    <a href="/kvk-172/prep.html">KVK vs 172</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Power Increase</span>
+  </div>
+
+  <!-- ====== KVK TABS ====== -->
+  <div class="kvk-tabs">
+    <a href="/kvk-172/prep.html" class="kvk-tab">⚔️ Prep Phase</a>
+    <a href="/kvk-172/power.html" class="kvk-tab active">📈 Power Increase</a>
+  </div>
+
+  <!-- ====== HERO ====== -->
+  <div class="hero">
+    <div class="hero-badge">Kingdom 259 vs 172 · Power Growth</div>
+    <h1>Power Increase <span>Leaderboard</span></h1>
+    <div class="hero-sub">Kingdom 259 vs Kingdom 172 — KVK Power Growth · June 15 → June 20, 2026</div>
+  </div>
+
+  <!-- ====== STATS ROW ====== -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" id="s-players">—</div>
+      <div class="stat-label">Players</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-total">—</div>
+      <div class="stat-label">Total Gained</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="s-avg">—</div>
+      <div class="stat-label">Avg Gain</div>
+    </div>
+  </div>
+
+  <!-- ====== CONTROLS ====== -->
+  <div class="controls">
+    <div class="tab-group">
+      <button class="tab-btn active" data-tab="absolute">💰 By Power</button>
+      <button class="tab-btn" data-tab="percentage">📈 By %</button>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search" placeholder="Search player...">
+    </div>
+  </div>
+
+  <!-- ====== LEADERBOARD TABLE ====== -->
+  <div class="leaderboard">
+    <div class="lb-head">
+      <span>#</span>
+      <span>Player</span>
+      <span class="col-initial">Initial</span>
+      <span class="col-after">After</span>
+      <span>Gain</span>
+      <span>% Gain</span>
+    </div>
+    <div id="tbody"></div>
+  </div>
+
+  <div class="power-footer">
+    <strong>Kingdom 259</strong> · LoL Alliance · KVK vs 172 · June 15 → June 20, 2026<br>
+    Data sourced from in-game player power tracking
+  </div>
+
+  <!-- ====== SITE FOOTER ====== -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🏰 Kingdom 259</h4>
+        <p>Alliance LoL · Kingshot</p>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 172</h4>
+        <a href="/kvk-172/prep.html">Prep Phase</a>
+        <a href="/kvk-172/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>⚔️ KVK vs 219</h4>
+        <a href="/kvk-219/prep.html">Prep Phase</a>
+        <a href="/kvk-219/power.html">Power Increase</a>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="/thank-you-cindy.html">❤️ Thank You Cindy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Kingdom 259 · LoL Alliance · Data sourced from in-game rankings</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+        const P = [
+            {n:"Deus",i:872062064,a:1119776279,g:247714215,p:28.4},
+            {n:"Dumbo",i:376347572,a:553680392,g:177332820,p:47.1},
+            {n:"Kendra",i:651173276,a:756016370,g:104843094,p:16.1},
+            {n:"Wokk",i:480427309,a:565803720,g:85376411,p:17.8},
+            {n:"Phatty",i:525028163,a:607087111,g:82058948,p:15.6},
+            {n:"要你命3000",i:355566495,a:427206070,g:71639575,p:20.1},
+            {n:"MightyFluxX",i:524951464,a:592783528,g:67832064,p:12.9},
+            {n:"MadMAX",i:371256931,a:438309745,g:67052814,p:18.1},
+            {n:"jillpikea",i:328798739,a:388543125,g:59744386,p:18.2},
+            {n:"Sleeping Insane",i:465843586,a:525382336,g:59538750,p:12.8},
+            {n:"Robster",i:253324004,a:312357828,g:59033824,p:23.3},
+            {n:"RavingRikea",i:329348845,a:387987811,g:58638966,p:17.8},
+            {n:"CiNikea",i:307499138,a:364513407,g:57014269,p:18.5},
+            {n:"Markiii",i:322823978,a:378984426,g:56160448,p:17.4},
+            {n:"Lord_Dexter",i:384219308,a:438838991,g:54619683,p:14.2},
+            {n:"Myrddinᴺᴸ",i:296391688,a:347131514,g:50739826,p:17.1},
+            {n:"Donquixote",i:354427902,a:404796682,g:50368780,p:14.2},
+            {n:"SynthX",i:233031416,a:283148616,g:50117200,p:21.5},
+            {n:"_MW_",i:292385521,a:341956176,g:49570655,p:17.0},
+            {n:"Wizan",i:511446833,a:557799292,g:46352459,p:9.1},
+            {n:"Dildoor",i:363240325,a:407958233,g:44717908,p:12.3},
+            {n:"xs OverHate PH",i:242805749,a:286770070,g:43964321,p:18.1},
+            {n:"Gengarkhan",i:362081743,a:405853591,g:43771848,p:12.1},
+            {n:"flashback",i:317866445,a:360497299,g:42630854,p:13.4},
+            {n:"Borjius",i:323218532,a:365647227,g:42428695,p:13.1},
+            {n:"SKYWALKER",i:287828365,a:329821781,g:41993416,p:14.6},
+            {n:"Eva",i:351972726,a:390469902,g:38497176,p:10.9},
+            {n:"Hannapatootie",i:250746608,a:287378323,g:36631715,p:14.6},
+            {n:"NoahLS181018",i:315990660,a:352004724,g:36014064,p:11.4},
+            {n:"Buff Nikea",i:148887283,a:184406286,g:35519003,p:23.9},
+            {n:"Diveranchu",i:324056596,a:357444235,g:33387639,p:10.3},
+            {n:"Fatty Snoopy",i:373577502,a:406938541,g:33361039,p:8.9},
+            {n:"Toni^PT",i:362840456,a:394371656,g:31531200,p:8.7},
+            {n:"ᵇᴸᵁᴹᴵÈᴿᴱᵇ",i:349494138,a:380624759,g:31130621,p:8.9},
+            {n:"Diane EN MOM",i:504500921,a:535258019,g:30757098,p:6.1},
+            {n:"IKARIKNOT",i:228062962,a:258137748,g:30074786,p:13.2},
+            {n:"DeathPhoenix",i:330427361,a:360084570,g:29657209,p:9.0},
+            {n:"Yoyoyokea",i:302274471,a:331236458,g:28961987,p:9.6},
+            {n:"Hello MoTo",i:224487998,a:253042141,g:28554143,p:12.7},
+            {n:"Sir James",i:353511836,a:381908524,g:28396688,p:8.0},
+            {n:"MangKanor",i:337923723,a:365900227,g:27976504,p:8.3},
+            {n:"Arno",i:274797130,a:302655273,g:27858143,p:10.1},
+            {n:"jiyaseru",i:246490479,a:273825080,g:27334601,p:11.1},
+            {n:"Daze",i:354087670,a:380937827,g:26850157,p:7.6},
+            {n:"9 5 2 7",i:466854570,a:493235542,g:26380972,p:5.7},
+            {n:"Zeka^TH",i:627120911,a:653057606,g:25936695,p:4.1},
+            {n:"卍~☽~† Angelo PH †~☾~",i:310193161,a:335705368,g:25512207,p:8.2},
+            {n:"Czeszej86",i:274011022,a:298868083,g:24857061,p:9.1},
+            {n:"∧PΣ",i:275360291,a:298064634,g:22704343,p:8.2},
+            {n:"M00nbeam",i:280239723,a:302458695,g:22218972,p:7.9},
+            {n:"Wibble",i:276003443,a:298084050,g:22080607,p:8.0},
+            {n:"RamscaleonEN",i:308410625,a:329187514,g:20776889,p:6.7},
+            {n:"Dangunit",i:393942760,a:414561858,g:20619098,p:5.2},
+            {n:"Pharitaᴴᴴ",i:452566626,a:472546379,g:19979753,p:4.4},
+            {n:"Slayer",i:230132200,a:249385869,g:19253669,p:8.4},
+            {n:"AuraMythX",i:338676831,a:357727153,g:19050322,p:5.6},
+            {n:"Beekea",i:315477877,a:334207881,g:18730004,p:5.9},
+            {n:"Marioti83",i:295634679,a:313665658,g:18030979,p:6.1},
+            {n:"Brori",i:320098465,a:337933745,g:17835280,p:5.6},
+            {n:"Kyoukai&Shin",i:376139912,a:393727459,g:17587547,p:4.7},
+            {n:"BATMAN",i:251261814,a:268419439,g:17157625,p:6.8},
+            {n:"Jonzn",i:398130006,a:414889304,g:16759298,p:4.2},
+            {n:"BattleBanana",i:205380249,a:221933290,g:16553041,p:8.1},
+            {n:"Turk",i:330807387,a:346853444,g:16046057,p:4.9},
+            {n:"TonyKIPS",i:274044123,a:290031301,g:15987178,p:5.8},
+            {n:"Minnie",i:256092581,a:271960950,g:15868369,p:6.2},
+            {n:"ΩOGEмOЛ",i:351892770,a:367339209,g:15446439,p:4.4},
+            {n:"Ralph^PH",i:252947398,a:268083192,g:15135794,p:6.0},
+            {n:"KisshhyyPH",i:221340332,a:235830150,g:14489818,p:6.5},
+            {n:"Shishi",i:287854075,a:302189912,g:14335837,p:5.0},
+            {n:"Sir poops",i:222285111,a:236528788,g:14243677,p:6.4},
+            {n:"Gargamel",i:274391462,a:288072364,g:13680902,p:5.0},
+            {n:"Numan67",i:403972408,a:417146287,g:13173879,p:3.3},
+            {n:"NaughtyLee",i:305593017,a:318619398,g:13026381,p:4.3},
+            {n:"Smurfsalot",i:254257539,a:267281938,g:13024399,p:5.1},
+            {n:"scotty9292",i:305601544,a:318298657,g:12697113,p:4.2},
+            {n:"Rinma",i:337996022,a:350390638,g:12394616,p:3.7},
+            {n:"Lil Vikea",i:274955728,a:287238516,g:12282788,p:4.5},
+            {n:"Ri Shin",i:258020117,a:269736548,g:11716431,p:4.5},
+            {n:"Super Buu",i:174862022,a:186333781,g:11471759,p:6.6},
+            {n:"Chrilli",i:258644131,a:270077799,g:11433668,p:4.4},
+            {n:"Pau",i:300934326,a:312317637,g:11383311,p:3.8},
+            {n:"Ziskia",i:327746963,a:339100166,g:11353203,p:3.5},
+            {n:"HotDogOfWar",i:322221122,a:333144496,g:10923374,p:3.4},
+            {n:"PapaShin",i:252664316,a:260790631,g:8126315,p:3.2},
+            {n:"MAD CACTUS",i:282238350,a:290291720,g:8053370,p:2.9},
+            {n:"mayu",i:242144824,a:249750081,g:7605257,p:3.1},
+            {n:"i MONSOON AU",i:315538803,a:322657836,g:7119033,p:2.3},
+            {n:"Etasn",i:339588768,a:346144692,g:6555924,p:1.9},
+            {n:"TMK",i:244535594,a:250062924,g:5527330,p:2.3},
+            {n:"UÇURUM",i:247951014,a:251629649,g:3678635,p:1.5},
+            {n:"Ashoka",i:268079608,a:271635115,g:3555507,p:1.3},
+            {n:"G A V I N",i:236006156,a:239304976,g:3298820,p:1.4},
+            {n:"Robster as well",i:177179316,a:179689551,g:2510235,p:1.4},
+            {n:"Piskot",i:203315225,a:204611037,g:1295812,p:0.6},
+            {n:"Cervantes",i:455300096,a:455300096,g:0,p:0.0},
+            {n:"Fat Buu",i:164664241,a:164664241,g:0,p:0.0},
+            {n:"Kid Buu",i:156002519,a:156002519,g:0,p:0.0},
+            {n:"Leia",i:155344789,a:155344789,g:0,p:0.0},
+            {n:"overNoob",i:141927925,a:141927925,g:0,p:0.0}
+        ];
+
+        const fmt = n => n.toLocaleString();
+        let tab = 'absolute';
+
+        function medal(r) {
+            if (r === 1) return '🥇';
+            if (r === 2) return '🥈';
+            if (r === 3) return '🥉';
+            return '';
+        }
+
+        function gainClass(g) {
+            if (g >= 50000000) return 'gain-mega';
+            if (g >= 20000000) return 'gain-big';
+            if (g >= 0) return 'gain-positive';
+            return 'gain-negative';
+        }
+
+        function pctClass(p) {
+            if (p < 0) return 'pct-negative';
+            if (p >= 15) return 'pct-tier-1';
+            if (p >= 8) return 'pct-tier-2';
+            if (p >= 4) return 'pct-tier-3';
+            return 'pct-tier-4';
+        }
+
+        function rankClass(r) {
+            if (r === 1) return 'gold-row';
+            if (r === 2) return 'silver-row';
+            if (r === 3) return 'bronze-row';
+            return '';
+        }
+
+        function render(filter = '') {
+            let sorted = tab === 'absolute'
+                ? [...P].sort((a, b) => b.g - a.g)
+                : [...P].sort((a, b) => b.p - a.p);
+
+            if (filter) {
+                sorted = sorted.filter(p => p.n.toLowerCase().includes(filter.toLowerCase()));
+            }
+
+            const tbody = document.getElementById('tbody');
+            if (!sorted.length) {
+                tbody.innerHTML = '<div class="no-results">No players found</div>';
+                return;
+            }
+
+            tbody.innerHTML = sorted.map((p, i) => {
+                const r = i + 1;
+                const rc = rankClass(r);
+                return `<div class="lb-row ${rc}">
+                    <span class="lb-rank">${medal(r)}${r}</span>
+                    <span class="lb-name">${p.n}</span>
+                    <span class="cell-right initial-val col-initial">${fmt(p.i)}</span>
+                    <span class="cell-right after-val col-after">${fmt(p.a)}</span>
+                    <span class="cell-right gain-val ${gainClass(p.g)}">${p.g >= 0 ? '+' : ''}${fmt(p.g)}</span>
+                    <span class="cell-right"><span class="pct-val ${pctClass(p.p)}">${p.p >= 0 ? '+' : ''}${p.p}%</span></span>
+                </div>`;
+            }).join('');
+
+            // Stats
+            const total = P.reduce((s, p) => s + p.g, 0);
+            const avg = Math.round(total / P.length);
+            document.getElementById('s-players').textContent = P.length;
+            document.getElementById('s-total').textContent = fmt(total);
+            document.getElementById('s-avg').textContent = fmt(avg);
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                tab = btn.dataset.tab;
+                render(document.getElementById('search').value);
+            });
+        });
+
+        document.getElementById('search').addEventListener('input', e => {
+            render(e.target.value);
+        });
+
+        render();
+</script>
+</body>
+</html>
