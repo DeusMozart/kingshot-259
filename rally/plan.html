@@ -431,8 +431,13 @@
             <div class="result-name"><span class="order">${index + 1}</span>${escapeHtml(leader.name)}${index === 0 ? '<span>LEAVES FIRST</span>' : ''}</div>
             <div class="result-time">START RALLY UTC ${escapeHtml(leader.date)} ${leader.clock}<small class="countdown" data-send-seconds="${leader.sendSeconds}"></small></div>
           </div>`).join('');
-        const compact = plan.map((leader) => `${escapeText(leader.name)}: ${leader.clock}`).join(' | ');
-        copyOutput.value = `${rallyDurationLabel(rallyDuration)} RALLY • HIT UTC ${dateLabel} ${timeInput.value.trim()} — ${compact}`;
+        const baseDate = dateWithOffset(dateLabel, 0);
+        const lines = plan.map((leader, index) => {
+          const first = index === 0 ? ' — FIRST TO LAUNCH' : '';
+          const when = leader.date === baseDate ? leader.clock : `${leader.clock} (${leader.date})`;
+          return `${index + 1}. ${escapeText(leader.name)} — START ${when} UTC${first}`;
+        });
+        copyOutput.value = `RALLY PLAN — HIT ${timeInput.value.trim()} UTC (${dateLabel}), ${rallyDurationLabel(rallyDuration)} rally\n${lines.join('\n')}`;
         copyButton.disabled = false;
         updateCountdowns();
       }
