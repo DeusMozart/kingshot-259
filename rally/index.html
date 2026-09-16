@@ -1,1 +1,520 @@
-<!DOCTYPE html><html lang="en" class="inter_b2991b2-module__9mH_6q__variable dark"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/rally/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/rally/_next/static/chunks/2w1-8fcu-vskh.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/rally/_next/static/chunks/0_8y92xg60ach.js"/><script src="/rally/_next/static/chunks/07-hzktxqjvzd.js" async=""></script><script src="/rally/_next/static/chunks/3rxl-jt3pdxgx.js" async=""></script><script src="/rally/_next/static/chunks/3f11bngknvubu.js" async=""></script><script src="/rally/_next/static/chunks/turbopack-44rfstr8d6fjr.js" async=""></script><script src="/rally/_next/static/chunks/22k9sz0qxt8-n.js" async=""></script><script src="/rally/_next/static/chunks/14mrh2-p_w84d.js" async=""></script><script src="/rally/_next/static/chunks/3i_-uvqrubr4s.js" async=""></script><script src="/rally/_next/static/chunks/43yiu9im9e2iu.js" async=""></script><script src="/rally/_next/static/chunks/2of24l_7j8j2d.js" async=""></script><meta name="next-size-adjust" content=""/><title>Kingshot Rally Sync</title><meta name="description" content="Synchronize your Kingshot rally march times. Calculate exactly when each player should start their march."/><link rel="icon" href="/rally/favicon.ico?favicon.2vob68tjqpejf.ico" sizes="256x256" type="image/x-icon"/><script src="/rally/_next/static/chunks/0cz1d0mv5g_q7.js" noModule=""></script></head><body class="min-h-screen bg-zinc-950 text-zinc-100 antialiased"><div hidden=""><!--$--><!--/$--></div><nav class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-sm sticky top-0 z-50"><div class="max-w-2xl mx-auto px-4 h-14 flex items-center justify-between"><a class="text-lg font-bold tracking-tight text-amber-400 hover:text-amber-300 transition-colors" href="/rally">⚔️ Kingshot Rally Sync</a><div class="flex items-center gap-1"><a class="px-3 py-2 rounded-md text-sm font-medium transition-colors bg-amber-500/10 text-amber-400" href="/rally">Home</a><a class="px-3 py-2 rounded-md text-sm font-medium transition-colors text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50" href="/rally/players">Saved Players</a><a class="px-3 py-2 rounded-md text-sm font-medium transition-colors text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50" href="/rally/presets">Battle Presets</a></div></div></nav><main class="max-w-2xl mx-auto px-4 py-8"><div class="space-y-8"><button type="button" tabindex="0" data-slot="button" class="group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 hover:bg-primary/80 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 w-full h-16 text-lg font-bold bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 shadow-lg shadow-amber-500/20"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-swords h-5 w-5 mr-3" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" x2="19" y1="19" y2="13"></line><line x1="16" x2="20" y1="16" y2="20"></line><line x1="19" x2="21" y1="21" y2="19"></line><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline><line x1="5" x2="9" y1="14" y2="18"></line><line x1="7" x2="4" y1="17" y2="20"></line><line x1="3" x2="5" y1="19" y2="21"></line></svg>Start Battle</button><div class="space-y-6 scroll-mt-20"><div><h1 class="text-2xl font-bold text-zinc-100 mb-1">Rally Calculator</h1><p class="text-zinc-400">Castle Battle — 5:00 rally timer</p></div><div class="space-y-3"><div class="flex items-center justify-between"><span class="text-zinc-300 text-sm uppercase tracking-wider">Rally Leaders</span><span class="text-zinc-500 text-xs">3<!-- --> player<!-- -->s</span></div><div class="space-y-2"><div class="flex items-center gap-3"><span class="text-zinc-500 text-sm w-6 shrink-0">1<!-- -->.</span><input id="base-ui-_R_999btb_" type="text" data-slot="input" placeholder="Player name" class="w-full rounded-lg border px-2.5 py-1 transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 h-12 text-base bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 flex-1 min-w-0" value=""/><input id="base-ui-_R_d99btb_" type="number" data-slot="input" placeholder="Sec" class="min-w-0 rounded-lg border px-2.5 py-1 transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 h-12 text-base bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 w-20 shrink-0" value=""/><button type="button" tabindex="0" data-slot="button" aria-label="Remove player" class="group/button inline-flex items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 size-8 h-12 w-12 text-zinc-500 hover:text-red-400 hover:bg-red-500/10 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><div class="flex items-center gap-3"><span class="text-zinc-500 text-sm w-6 shrink-0">2<!-- -->.</span><input id="base-ui-_R_a99btb_" type="text" data-slot="input" placeholder="Player name" class="w-full rounded-lg border px-2.5 py-1 transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 h-12 text-base bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 flex-1 min-w-0" value=""/><input id="base-ui-_R_e99btb_" type="number" data-slot="input" placeholder="Sec" class="min-w-0 rounded-lg border px-2.5 py-1 transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 h-12 text-base bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 w-20 shrink-0" value=""/><button type="button" tabindex="0" data-slot="button" aria-label="Remove player" class="group/button inline-flex items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 size-8 h-12 w-12 text-zinc-500 hover:text-red-400 hover:bg-red-500/10 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><div class="flex items-center gap-3"><span class="text-zinc-500 text-sm w-6 shrink-0">3<!-- -->.</span><input id="base-ui-_R_b99btb_" type="text" data-slot="input" placeholder="Player name" class="w-full rounded-lg border px-2.5 py-1 transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 h-12 text-base bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 flex-1 min-w-0" value=""/><input id="base-ui-_R_f99btb_" type="number" data-slot="input" placeholder="Sec" class="min-w-0 rounded-lg border px-2.5 py-1 transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 h-12 text-base bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 w-20 shrink-0" value=""/><button type="button" tabindex="0" data-slot="button" aria-label="Remove player" class="group/button inline-flex items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 size-8 h-12 w-12 text-zinc-500 hover:text-red-400 hover:bg-red-500/10 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div></div><button type="button" tabindex="0" data-slot="button" class="group/button inline-flex shrink-0 items-center justify-center rounded-lg border bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 hover:bg-muted aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 w-full h-12 border-dashed border-zinc-700 text-zinc-400 hover:text-zinc-200 hover:border-zinc-500 bg-transparent"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-4 w-4 mr-2" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Add Player</button></div><button type="button" tabindex="0" data-slot="button" class="group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 w-full h-14 text-lg font-bold bg-amber-500 hover:bg-amber-400 text-zinc-950"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play h-5 w-5 mr-2" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>Calculate Rally Times</button></div></div><!--$--><!--/$--></main><script src="/rally/_next/static/chunks/0_8y92xg60ach.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[28423,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"NavBar\"]\n3:I[39756,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"default\"]\n4:I[37457,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"default\"]\n5:I[47257,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"ClientPageRoot\"]\n6:I[52683,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\",\"/rally/_next/static/chunks/43yiu9im9e2iu.js\",\"/rally/_next/static/chunks/2of24l_7j8j2d.js\"],\"default\"]\n9:I[97367,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"OutletBoundary\"]\na:\"$Sreact.suspense\"\nc:I[97367,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"ViewportBoundary\"]\ne:I[97367,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"MetadataBoundary\"]\n10:I[68027,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"default\",1]\n:HL[\"/rally/_next/static/chunks/2w1-8fcu-vskh.css\",\"style\"]\n:HL[\"/rally/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",16],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/rally/_next/static/chunks/2w1-8fcu-vskh.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"className\":\"inter_b2991b2-module__9mH_6q__variable dark\",\"children\":[\"$\",\"body\",null,{\"className\":\"min-h-screen bg-zinc-950 text-zinc-100 antialiased\",\"children\":[[\"$\",\"$L2\",null,{}],[\"$\",\"main\",null,{\"className\":\"max-w-2xl mx-auto px-4 py-8\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L5\",null,{\"Component\":\"$6\",\"serverProvidedParams\":{\"searchParams\":{},\"params\":{},\"promises\":[\"$@7\",\"$@8\"]}}],[[\"$\",\"script\",\"script-0\",{\"src\":\"/rally/_next/static/chunks/43yiu9im9e2iu.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/rally/_next/static/chunks/2of24l_7j8j2d.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L9\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@b\"}]}]]}],{},null,false,null]},null,false,null],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Le\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Lf\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/rally/_next/static/chunks/2w1-8fcu-vskh.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]]],\"S\":true,\"h\":null,\"s\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"TCfU1oObDda21i6U9SO6Y\"}\n"])</script><script>self.__next_f.push([1,"7:{}\n8:\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\"\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"11:I[27201,[\"/rally/_next/static/chunks/22k9sz0qxt8-n.js\",\"/rally/_next/static/chunks/14mrh2-p_w84d.js\",\"/rally/_next/static/chunks/3i_-uvqrubr4s.js\"],\"IconMark\"]\nb:null\nf:[[\"$\",\"title\",\"0\",{\"children\":\"Kingshot Rally Sync\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Synchronize your Kingshot rally march times. Calculate exactly when each player should start their march.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/rally/favicon.ico?favicon.2vob68tjqpejf.ico\",\"sizes\":\"256x256\",\"type\":\"image/x-icon\"}],[\"$\",\"$L11\",\"3\",{}]]\n"])</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rally Impact Scheduler | Kingshot Rally Sync</title>
+  <meta name="description" content="Schedule Kingshot rally leaders to hit a target together with a fixed, copy-ready UTC plan.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0e0d0d;
+      --surface: #171515;
+      --surface-2: #201d1b;
+      --surface-3: #282320;
+      --border: #3a312b;
+      --text: #f3eee8;
+      --muted: #aaa09a;
+      --amber: #e1a34e;
+      --amber-strong: #f0b95f;
+      --amber-dim: #7f5b2d;
+      --green: #9ee06b;
+      --danger: #f28d82;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% -20%, #2a2119 0, var(--bg) 44rem);
+      color: var(--text);
+      font: 15px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid rgba(225, 163, 78, .16);
+      background: rgba(14, 13, 13, .92);
+      backdrop-filter: blur(14px);
+    }
+    .topbar-inner {
+      max-width: 820px;
+      min-height: 58px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      color: var(--amber-strong);
+      font-weight: 760;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+    .nav a {
+      padding: 7px 10px;
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .nav a:hover, .nav a.active { color: var(--amber-strong); background: rgba(225, 163, 78, .1); }
+
+    main { max-width: 820px; margin: 0 auto; padding: 34px 20px 72px; }
+    .eyebrow {
+      color: var(--amber);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 6px 0 5px; font-size: clamp(28px, 5vw, 38px); line-height: 1.08; letter-spacing: -.035em; }
+    .intro { margin: 0 0 26px; max-width: 600px; color: var(--muted); }
+
+    .card {
+      margin-top: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(40,35,32,.94), rgba(23,21,21,.98));
+      box-shadow: 0 16px 40px rgba(0,0,0,.18);
+    }
+    .card-title { margin: 0; font-size: 16px; font-weight: 750; }
+    .card-help { margin: 4px 0 16px; color: var(--muted); font-size: 13px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .live-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 13px; padding: 10px 12px; border: 1px solid #4c3c2a; border-radius: 9px; background: rgba(225,163,78,.06); }
+    .live-label { color: var(--muted); font-size: 12px; }
+    .live-clock { color: var(--amber-strong); font-variant-numeric: tabular-nums; font-weight: 760; }
+    .live-note { margin: 2px 0 0; color: #7f746c; font-size: 11px; }
+    .live-copy { display: grid; gap: 1px; }
+    .quick-times { display: flex; flex-wrap: wrap; gap: 7px; }
+    .duration-note { flex-basis: 100%; margin: 0 0 1px; color: var(--muted); font-size: 11px; }
+    .control-label { flex-basis: 100%; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .quick-time { min-height: 32px; padding: 5px 10px; border: 1px solid #604729; border-radius: 7px; color: var(--amber-strong); background: #2a2420; font-size: 12px; font-weight: 720; }
+    .quick-time:hover { background: #352d28; }
+    .quick-time.active { color: #1b140d; background: var(--amber); border-color: var(--amber-strong); }
+    label { display: grid; gap: 6px; color: #d7cec8; font-size: 13px; font-weight: 650; }
+    input, textarea {
+      width: 100%;
+      color: var(--text);
+      border: 1px solid #493b31;
+      border-radius: 9px;
+      background: #121111;
+      outline: none;
+    }
+    input { min-height: 42px; padding: 9px 11px; }
+    textarea { min-height: 88px; padding: 12px; resize: vertical; line-height: 1.55; }
+    input::placeholder { color: #6f6762; }
+    input:focus, textarea:focus { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(225,163,78,.13); }
+
+    .leaders-head, .leader-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) 150px 34px; gap: 10px; align-items: center; }
+    .leaders-head { margin: 12px 0 6px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .leader-row { margin-top: 8px; }
+    .leader-number { color: #7e746e; text-align: center; font-variant-numeric: tabular-nums; }
+    .remove-row { width: 34px; height: 34px; padding: 0; border: 1px solid transparent; border-radius: 8px; color: #887d75; background: transparent; }
+    .remove-row:hover { border-color: #58433a; color: var(--danger); background: rgba(242,141,130,.08); }
+
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 17px; }
+    .btn {
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid #604729;
+      border-radius: 9px;
+      color: #1b140d;
+      background: var(--amber);
+      font-weight: 760;
+    }
+    .btn:hover { background: var(--amber-strong); }
+    .btn.secondary { color: #ded3cb; background: #2a2420; border-color: #4b3c31; }
+    .btn.secondary:hover { background: #352d28; }
+    .btn:disabled { opacity: .55; cursor: not-allowed; }
+    .status { min-height: 1.25em; margin-left: 3px; color: var(--danger); font-size: 13px; }
+
+    .result-card { border-color: #6d4b27; background: linear-gradient(145deg, rgba(64,46,27,.85), rgba(26,22,19,.98)); }
+    .result-top { display: flex; justify-content: space-between; gap: 14px; align-items: baseline; }
+    .result-top small { color: var(--muted); }
+    .result-list { display: grid; gap: 8px; margin: 16px 0; }
+    .result-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 13px; border: 1px solid #493b2d; border-radius: 10px; background: rgba(15,14,13,.55); }
+    .result-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 720; }
+    .result-name span { display: inline-block; margin-left: 7px; padding: 2px 6px; border: 1px solid rgba(158,224,107,.3); border-radius: 5px; color: var(--green); font-size: 10px; letter-spacing: .08em; vertical-align: 2px; }
+    .result-time { color: var(--amber-strong); font-variant-numeric: tabular-nums; font-weight: 760; white-space: nowrap; }
+    .result-time small { margin-left: 5px; color: var(--muted); font-weight: 500; }
+    .result-time small.countdown { display: block; margin: 2px 0 0; color: #bdb1a8; font-size: 11px; }
+    .result-time small.countdown.late { color: var(--danger); }
+    .copy-wrap { display: grid; gap: 9px; }
+    .copy-label { color: #d7cec8; font-size: 13px; font-weight: 650; }
+    .copy-note { margin: 0; color: var(--muted); font-size: 12px; }
+    .empty { padding: 18px; border: 1px dashed #4a3a2e; border-radius: 10px; color: var(--muted); text-align: center; }
+    .order { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 8px; border-radius: 6px; background: rgba(225,163,78,.14); color: var(--amber-strong); font-size: 12px; font-weight: 800; vertical-align: 1px; }
+    .result-row.is-next { border-color: var(--amber-strong); box-shadow: 0 0 0 1px var(--amber-strong); }
+    .result-row.is-now { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), 0 0 22px rgba(158,224,107,.25); }
+    .result-row.is-now .result-time small.countdown { color: var(--green); font-size: 14px; font-weight: 800; }
+    .mini-toggle { padding: 6px 10px; border: 1px solid #4b3c31; border-radius: 7px; background: #2a2420; color: #ded3cb; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .mini-toggle[aria-pressed="false"] { opacity: .6; }
+
+    @media (max-width: 640px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; padding-top: 13px; padding-bottom: 11px; }
+      .nav { justify-content: flex-start; }
+      main { padding-top: 27px; }
+      .grid { grid-template-columns: 1fr; }
+      .leaders-head, .leader-row { grid-template-columns: 26px minmax(0, 1fr) 112px 30px; gap: 7px; }
+      .card { padding: 16px; }
+      .result-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .result-time { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/rally/">⚔️ Kingshot Rally Sync</a>
+      <nav class="nav" aria-label="Rally tools">
+        <a href="/rally/">Calculator</a>
+        <a class="active" href="/rally/plan.html">UTC Rally Plan</a>
+        <a href="/rally/players">Saved Players</a>
+        <a href="/rally/presets">Battle Presets</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="eyebrow">Kingshot coordination</div>
+    <h1>Rally Impact Scheduler</h1>
+    <p class="intro">Choose the exact UTC time every rally must hit. The planner works backward from that moment so leaders leave at the right times and land together.</p>
+
+    <section class="card" aria-labelledby="inputs-title">
+      <h2 class="card-title" id="inputs-title">Set the impact time</h2>
+      <p class="card-help">Keep the date exactly as Kingshot displays it, such as <strong>08-42</strong>. Set when every rally should <strong>hit</strong>—not when anyone starts marching. Choose the in-game rally duration, then enter march times as <strong>M:SS</strong>, <strong>H:MM:SS</strong>, or seconds.</p>
+      <div class="grid">
+        <label>In-game UTC date
+          <input id="dateInput" type="text" value="08-42" placeholder="08-42" autocomplete="off" spellcheck="false">
+        </label>
+        <label>All rallies hit at (UTC)
+          <input id="timeInput" type="text" placeholder="15:25:00" inputmode="numeric" autocomplete="off" spellcheck="false">
+        </label>
+      </div>
+      <div class="live-row">
+        <div class="live-copy">
+          <span class="live-label">Live UTC clock (device reference)</span>
+          <span class="live-clock" id="liveClock" aria-live="off">UTC -- --:--:--</span>
+          <p class="live-note">Use this as your reference; the plan stays fixed after you calculate it.</p>
+        </div>
+        <div class="quick-times" aria-label="Rally duration">
+          <p class="duration-note">Rally duration — tap any option to start a fresh plan.</p>
+          <button class="quick-time" type="button" data-rally-duration="60">1-minute rally</button>
+          <button class="quick-time" type="button" data-rally-duration="180">3-minute rally</button>
+          <button class="quick-time active" type="button" data-rally-duration="300" aria-pressed="true">5-minute rally</button>
+          <span class="control-label">Prep buffer</span>
+          <button class="quick-time" type="button" data-prep-buffer="5">5 seconds</button>
+          <button class="quick-time active" type="button" data-prep-buffer="10" aria-pressed="true">10 seconds</button>
+          <button class="quick-time" type="button" data-prep-buffer="15">15 seconds</button>
+          <button class="quick-time" type="button" data-prep-buffer="20">20 seconds</button>
+        </div>
+      </div>
+
+      <div class="leaders-head" aria-hidden="true"><span>#</span><span>Leader</span><span>March time</span><span></span></div>
+      <div id="leaderRows"></div>
+
+      <div class="actions">
+        <button class="btn secondary" id="addLeader" type="button">+ Add leader</button>
+        <button class="btn" id="calculate" type="button">Lock impact plan</button>
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="card result-card" aria-labelledby="results-title">
+      <div class="result-top">
+        <h2 class="card-title" id="results-title">Rally start order</h2>
+        <small id="resultMeta">Set a future impact time</small>
+        <button class="mini-toggle" id="soundToggle" type="button" aria-pressed="true">🔔 Sound on</button>
+      </div>
+      <div class="result-list" id="resultList"><div class="empty">Enter the march times, then calculate the plan.</div></div>
+      <div class="copy-wrap">
+        <label class="copy-label" for="copyOutput">Copy-ready message</label>
+        <textarea id="copyOutput" readonly aria-label="Copy-ready UTC rally message" placeholder="Your Discord-ready rally message will appear here."></textarea>
+        <p class="copy-note">This is a fixed message for Discord. The countdowns update to each rally start, but the scheduled times do not.</p>
+        <button class="btn secondary" id="copyButton" type="button" disabled>Copy rally plan</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const rows = document.getElementById('leaderRows');
+      const dateInput = document.getElementById('dateInput');
+      const timeInput = document.getElementById('timeInput');
+      const resultList = document.getElementById('resultList');
+      const resultMeta = document.getElementById('resultMeta');
+      const copyOutput = document.getElementById('copyOutput');
+      const copyButton = document.getElementById('copyButton');
+      const status = document.getElementById('status');
+      const liveClock = document.getElementById('liveClock');
+
+      const pad = (value) => String(value).padStart(2, '0');
+
+      function parseMarch(value) {
+        const clean = String(value || '').trim();
+        if (!clean) return NaN;
+        if (/^\d+(?:\.\d+)?$/.test(clean)) return Number(clean);
+        const parts = clean.split(':').map(Number);
+        if (parts.some((part) => !Number.isFinite(part) || part < 0)) return NaN;
+        if (parts.length === 2 && parts[1] < 60) return parts[0] * 60 + parts[1];
+        if (parts.length === 3 && parts[1] < 60 && parts[2] < 60) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+        return NaN;
+      }
+
+      function parseClock(value) {
+        const match = String(value || '').trim().match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+        if (!match) return null;
+        const hour = Number(match[1]);
+        const minute = Number(match[2]);
+        const second = Number(match[3] || 0);
+        if (hour > 23 || minute > 59 || second > 59) return null;
+        return hour * 3600 + minute * 60 + second;
+      }
+
+      function clockFromOffset(startSeconds, offset) {
+        const total = startSeconds + offset;
+        const dayOffset = Math.floor(total / 86400);
+        const normalized = ((total % 86400) + 86400) % 86400;
+        const hour = Math.floor(normalized / 3600);
+        const minute = Math.floor((normalized % 3600) / 60);
+        const second = normalized % 60;
+        return { clock: `${pad(hour)}:${pad(minute)}:${pad(second)}`, dayOffset };
+      }
+
+      function dateWithOffset(label, dayOffset) {
+        if (!dayOffset) return label;
+        const match = String(label).trim().match(/^(\d{1,2})[-/](\d{1,2})$/);
+        if (!match) return `${label} (${dayOffset > 0 ? `+${dayOffset}d` : 'previous day'})`;
+        const month = Number(match[1]);
+        const day = Number(match[2]);
+        if (month < 1 || month > 12 || day < 1 || day > 31) return `${label} (${dayOffset > 0 ? `+${dayOffset}d` : 'previous day'})`;
+        const date = new Date(Date.UTC(2000, month - 1, day - 1 + dayOffset));
+        return `${pad(date.getUTCMonth() + 1)}-${pad(date.getUTCDate())}`;
+      }
+
+      function addRow(name = '', march = '') {
+        const row = document.createElement('div');
+        row.className = 'leader-row';
+        row.innerHTML = `
+          <span class="leader-number"></span>
+          <input class="leader-name" type="text" placeholder="Leader name" value="${escapeHtml(name)}" autocomplete="off">
+          <input class="march-time" type="text" placeholder="M:SS or seconds" value="${escapeHtml(march)}" inputmode="numeric" autocomplete="off">
+          <button class="remove-row" type="button" aria-label="Remove leader" title="Remove leader">×</button>`;
+        row.querySelector('.remove-row').addEventListener('click', () => {
+          if (rows.children.length <= 2) {
+            setStatus('Keep at least two leaders in the plan.');
+            return;
+          }
+          row.remove();
+          renumber();
+        });
+        rows.appendChild(row);
+        renumber();
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
+      }
+
+      function renumber() {
+        [...rows.children].forEach((row, index) => { row.querySelector('.leader-number').textContent = `${index + 1}.`; });
+      }
+
+      function setStatus(message = '') { status.textContent = message; }
+
+      function currentUtcClock() {
+        const now = new Date();
+        return {
+          date: `${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`,
+          time: `${pad(now.getUTCHours())}:${pad(now.getUTCMinutes())}:${pad(now.getUTCSeconds())}`,
+          seconds: now.getUTCHours() * 3600 + now.getUTCMinutes() * 60 + now.getUTCSeconds()
+        };
+      }
+
+      function updateLiveClock() {
+        const current = currentUtcClock();
+        liveClock.textContent = `UTC ${current.date} ${current.time}`;
+        updateCountdowns(current.seconds);
+      }
+
+      function setTargetFromNow(delay) {
+        const current = currentUtcClock();
+        timeInput.value = clockFromOffset(current.seconds, delay).clock;
+        calculate();
+      }
+
+      function freshPlan(duration = selectedRallyDuration) {
+        selectedRallyDuration = duration;
+        document.querySelectorAll('[data-rally-duration]').forEach((option) => {
+          const active = Number(option.dataset.rallyDuration) === duration;
+          option.classList.toggle('active', active);
+          option.setAttribute('aria-pressed', String(active));
+        });
+        const marchTimes = [...rows.children]
+          .map((row) => parseMarch(row.querySelector('.march-time').value))
+          .filter((seconds) => Number.isFinite(seconds) && seconds > 0);
+        const longestMarch = marchTimes.length ? Math.max(...marchTimes) : 180;
+        setTargetFromNow(duration + longestMarch + selectedPrepBuffer);
+      }
+
+      function formatDuration(seconds) {
+        const total = Math.max(0, Math.ceil(seconds));
+        const minutes = Math.floor(total / 60);
+        const remainder = total % 60;
+        return minutes ? `${minutes}m ${pad(remainder)}s` : `${remainder}s`;
+      }
+
+      function rallyDurationLabel(seconds) {
+        return `${Math.round(seconds / 60)}-minute`;
+      }
+
+      function updateCountdowns(currentSeconds = currentUtcClock().seconds) {
+        document.querySelectorAll('[data-send-seconds]').forEach((element) => {
+          let delta = Number(element.dataset.sendSeconds) - currentSeconds;
+          if (delta < -43200) delta += 86400;
+          if (delta > 43200) delta -= 86400;
+          const starting = delta < 0 && delta > -5;
+          element.textContent = delta >= 0 ? `start rally in ${formatDuration(delta)}` : starting ? 'START NOW' : `late ${formatDuration(-delta)}`;
+          element.classList.toggle('late', delta < -4);
+          const row = element.closest('.result-row');
+          if (row) {
+            row.classList.toggle('is-now', starting);
+            row.classList.toggle('is-next', !starting && delta >= 0 && delta <= 30);
+          }
+          if (starting && !element.dataset.beeped) {
+            element.dataset.beeped = '1';
+            beep();
+          }
+        });
+      }
+
+      function calculate() {
+        setStatus('');
+        ensureAudio();
+        const dateLabel = dateInput.value.trim();
+        const hitSeconds = parseClock(timeInput.value);
+        if (!dateLabel) return setStatus('Enter the in-game UTC date.');
+        if (hitSeconds === null) return setStatus('Use a hit time like 15:25:00.');
+
+        const leaders = [...rows.children].map((row) => ({
+          name: row.querySelector('.leader-name').value.trim(),
+          marchSeconds: parseMarch(row.querySelector('.march-time').value)
+        }));
+        if (leaders.some((leader) => !leader.name)) return setStatus('Give every leader a name.');
+        if (leaders.some((leader) => !Number.isFinite(leader.marchSeconds) || leader.marchSeconds < 0)) return setStatus('Enter every march time as M:SS or seconds.');
+        if (leaders.some((leader) => leader.marchSeconds === 0)) return setStatus('March times must be greater than zero.');
+
+        const rallyDuration = selectedRallyDuration;
+        const plan = leaders.map((leader, index) => {
+          const timing = clockFromOffset(hitSeconds, -rallyDuration - leader.marchSeconds);
+          return { ...leader, index, ...timing, date: dateWithOffset(dateLabel, timing.dayOffset), sendSeconds: Number(timing.clock.slice(0, 2)) * 3600 + Number(timing.clock.slice(3, 5)) * 60 + Number(timing.clock.slice(6, 8)) };
+        }).sort((a, b) => b.marchSeconds - a.marchSeconds || a.index - b.index);
+
+        resultMeta.textContent = `All hit at UTC ${dateLabel} ${timeInput.value.trim()} • ${rallyDurationLabel(rallyDuration)} rally • ${plan.length} leaders`;
+        resultList.innerHTML = plan.map((leader, index) => `
+          <div class="result-row">
+            <div class="result-name"><span class="order">${index + 1}</span>${escapeHtml(leader.name)}${index === 0 ? '<span>LEAVES FIRST</span>' : ''}</div>
+            <div class="result-time">START RALLY UTC ${escapeHtml(leader.date)} ${leader.clock}<small class="countdown" data-send-seconds="${leader.sendSeconds}"></small></div>
+          </div>`).join('');
+        const compact = plan.map((leader) => `${escapeText(leader.name)}: ${leader.clock}`).join(' | ');
+        copyOutput.value = `${rallyDurationLabel(rallyDuration)} RALLY • HIT UTC ${dateLabel} ${timeInput.value.trim()} — ${compact}`;
+        copyButton.disabled = false;
+        updateCountdowns();
+      }
+
+      function escapeText(value) { return String(value).replace(/[|\n\r]/g, ' ').trim(); }
+
+      async function copyPlan() {
+        if (!copyOutput.value) return;
+        try {
+          await navigator.clipboard.writeText(copyOutput.value);
+        } catch (_) {
+          copyOutput.focus();
+          copyOutput.select();
+          document.execCommand('copy');
+        }
+        const original = copyButton.textContent;
+        copyButton.textContent = 'Copied ✓';
+        window.setTimeout(() => { copyButton.textContent = original; }, 1400);
+      }
+
+      document.getElementById('addLeader').addEventListener('click', () => addRow());
+      document.getElementById('calculate').addEventListener('click', calculate);
+      copyButton.addEventListener('click', copyPlan);
+
+      let soundOn = true;
+      let audioCtx = null;
+      const soundToggle = document.getElementById('soundToggle');
+      function ensureAudio() {
+        try {
+          audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') void audioCtx.resume();
+        } catch (_) { /* audio unavailable */ }
+      }
+      function beep() {
+        if (!soundOn) return;
+        try {
+          ensureAudio();
+          if (!audioCtx || audioCtx.state !== 'running') return;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.frequency.value = 880;
+          const now = audioCtx.currentTime;
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.4, now + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+          osc.start(now);
+          osc.stop(now + 0.55);
+        } catch (_) { /* ignore */ }
+      }
+      soundToggle.addEventListener('click', () => {
+        soundOn = !soundOn;
+        soundToggle.setAttribute('aria-pressed', String(soundOn));
+        soundToggle.textContent = soundOn ? '🔔 Sound on' : '🔕 Sound off';
+        if (soundOn) ensureAudio();
+      });
+      rows.addEventListener('keydown', (event) => { if (event.key === 'Enter') calculate(); });
+
+      let selectedRallyDuration = 300;
+      let selectedPrepBuffer = 10;
+      document.querySelectorAll('[data-rally-duration]').forEach((button) => button.addEventListener('click', () => {
+        freshPlan(Number(button.dataset.rallyDuration));
+      }));
+      document.querySelectorAll('[data-prep-buffer]').forEach((button) => button.addEventListener('click', () => {
+        selectedPrepBuffer = Number(button.dataset.prepBuffer);
+        document.querySelectorAll('[data-prep-buffer]').forEach((option) => {
+          const active = option === button;
+          option.classList.toggle('active', active);
+          option.setAttribute('aria-pressed', String(active));
+        });
+        freshPlan();
+      }));
+      [dateInput, timeInput].forEach((input) => input.addEventListener('keydown', (event) => { if (event.key === 'Enter') calculate(); }));
+
+      addRow('Dimbi', '3:00');
+      addRow('Deus', '2:33');
+      addRow('Phatty', '2:18');
+      freshPlan(selectedRallyDuration);
+      updateLiveClock();
+      window.setInterval(updateLiveClock, 1000);
+    })();
+  </script>
+</body>
+</html>

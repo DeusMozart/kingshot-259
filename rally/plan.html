@@ -158,6 +158,12 @@
     .copy-label { color: #d7cec8; font-size: 13px; font-weight: 650; }
     .copy-note { margin: 0; color: var(--muted); font-size: 12px; }
     .empty { padding: 18px; border: 1px dashed #4a3a2e; border-radius: 10px; color: var(--muted); text-align: center; }
+    .order { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 8px; border-radius: 6px; background: rgba(225,163,78,.14); color: var(--amber-strong); font-size: 12px; font-weight: 800; vertical-align: 1px; }
+    .result-row.is-next { border-color: var(--amber-strong); box-shadow: 0 0 0 1px var(--amber-strong); }
+    .result-row.is-now { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), 0 0 22px rgba(158,224,107,.25); }
+    .result-row.is-now .result-time small.countdown { color: var(--green); font-size: 14px; font-weight: 800; }
+    .mini-toggle { padding: 6px 10px; border: 1px solid #4b3c31; border-radius: 7px; background: #2a2420; color: #ded3cb; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .mini-toggle[aria-pressed="false"] { opacity: .6; }
 
     @media (max-width: 640px) {
       .topbar-inner { align-items: flex-start; flex-direction: column; padding-top: 13px; padding-bottom: 11px; }
@@ -214,6 +220,8 @@
           <span class="control-label">Prep buffer</span>
           <button class="quick-time" type="button" data-prep-buffer="5">5 seconds</button>
           <button class="quick-time active" type="button" data-prep-buffer="10" aria-pressed="true">10 seconds</button>
+          <button class="quick-time" type="button" data-prep-buffer="15">15 seconds</button>
+          <button class="quick-time" type="button" data-prep-buffer="20">20 seconds</button>
         </div>
       </div>
 
@@ -231,6 +239,7 @@
       <div class="result-top">
         <h2 class="card-title" id="results-title">Rally start order</h2>
         <small id="resultMeta">Set a future impact time</small>
+        <button class="mini-toggle" id="soundToggle" type="button" aria-pressed="true">🔔 Sound on</button>
       </div>
       <div class="result-list" id="resultList"><div class="empty">Enter the march times, then calculate the plan.</div></div>
       <div class="copy-wrap">
@@ -379,13 +388,24 @@
           let delta = Number(element.dataset.sendSeconds) - currentSeconds;
           if (delta < -43200) delta += 86400;
           if (delta > 43200) delta -= 86400;
-          element.textContent = delta >= 0 ? `start rally in ${formatDuration(delta)}` : delta > -5 ? 'START NOW' : `late ${formatDuration(-delta)}`;
+          const starting = delta < 0 && delta > -5;
+          element.textContent = delta >= 0 ? `start rally in ${formatDuration(delta)}` : starting ? 'START NOW' : `late ${formatDuration(-delta)}`;
           element.classList.toggle('late', delta < -4);
+          const row = element.closest('.result-row');
+          if (row) {
+            row.classList.toggle('is-now', starting);
+            row.classList.toggle('is-next', !starting && delta >= 0 && delta <= 30);
+          }
+          if (starting && !element.dataset.beeped) {
+            element.dataset.beeped = '1';
+            beep();
+          }
         });
       }
 
       function calculate() {
         setStatus('');
+        ensureAudio();
         const dateLabel = dateInput.value.trim();
         const hitSeconds = parseClock(timeInput.value);
         if (!dateLabel) return setStatus('Enter the in-game UTC date.');
@@ -408,7 +428,7 @@
         resultMeta.textContent = `All hit at UTC ${dateLabel} ${timeInput.value.trim()} • ${rallyDurationLabel(rallyDuration)} rally • ${plan.length} leaders`;
         resultList.innerHTML = plan.map((leader, index) => `
           <div class="result-row">
-            <div class="result-name">${escapeHtml(leader.name)}${index === 0 ? '<span>LEAVES FIRST</span>' : ''}</div>
+            <div class="result-name"><span class="order">${index + 1}</span>${escapeHtml(leader.name)}${index === 0 ? '<span>LEAVES FIRST</span>' : ''}</div>
             <div class="result-time">START RALLY UTC ${escapeHtml(leader.date)} ${leader.clock}<small class="countdown" data-send-seconds="${leader.sendSeconds}"></small></div>
           </div>`).join('');
         const compact = plan.map((leader) => `${escapeText(leader.name)}: ${leader.clock}`).join(' | ');
@@ -436,6 +456,42 @@
       document.getElementById('addLeader').addEventListener('click', () => addRow());
       document.getElementById('calculate').addEventListener('click', calculate);
       copyButton.addEventListener('click', copyPlan);
+
+      let soundOn = true;
+      let audioCtx = null;
+      const soundToggle = document.getElementById('soundToggle');
+      function ensureAudio() {
+        try {
+          audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') void audioCtx.resume();
+        } catch (_) { /* audio unavailable */ }
+      }
+      function beep() {
+        if (!soundOn) return;
+        try {
+          ensureAudio();
+          if (!audioCtx || audioCtx.state !== 'running') return;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.frequency.value = 880;
+          const now = audioCtx.currentTime;
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.4, now + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+          osc.start(now);
+          osc.stop(now + 0.55);
+        } catch (_) { /* ignore */ }
+      }
+      soundToggle.addEventListener('click', () => {
+        soundOn = !soundOn;
+        soundToggle.setAttribute('aria-pressed', String(soundOn));
+        soundToggle.textContent = soundOn ? '🔔 Sound on' : '🔕 Sound off';
+        if (soundOn) ensureAudio();
+      });
+      rows.addEventListener('keydown', (event) => { if (event.key === 'Enter') calculate(); });
+
       let selectedRallyDuration = 300;
       let selectedPrepBuffer = 10;
       document.querySelectorAll('[data-rally-duration]').forEach((button) => button.addEventListener('click', () => {
