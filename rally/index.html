@@ -93,6 +93,7 @@
     .quick-time { min-height: 40px; padding: 8px 13px; border: 1px solid #604729; border-radius: 9px; color: var(--amber-strong); background: #2a2420; font-size: 13px; font-weight: 720; }
     .quick-time:hover { background: #352d28; }
     .quick-time.active { color: #1b140d; background: var(--amber); border-color: var(--amber-strong); }
+    .copy-hint { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 5px; background: rgba(0,0,0,.28); font-size: 10px; font-weight: 700; letter-spacing: .04em; }
     label { display: grid; gap: 6px; color: #d7cec8; font-size: 13px; font-weight: 650; }
     input, textarea {
       width: 100%;
@@ -194,9 +195,9 @@
         </div>
         <div class="quick-times" aria-label="Rally duration">
           <p class="duration-note">Rally duration — tap any option to start a fresh plan. It copies the plan for you.</p>
-          <button class="quick-time" type="button" data-rally-duration="60">1-minute rally</button>
-          <button class="quick-time" type="button" data-rally-duration="180">3-minute rally</button>
-          <button class="quick-time active" type="button" data-rally-duration="300" aria-pressed="true">5-minute rally</button>
+          <button class="quick-time" type="button" data-rally-duration="60">1-minute rally <span class="copy-hint">auto-copy</span></button>
+          <button class="quick-time" type="button" data-rally-duration="180">3-minute rally <span class="copy-hint">auto-copy</span></button>
+          <button class="quick-time active" type="button" data-rally-duration="300" aria-pressed="true">5-minute rally <span class="copy-hint">auto-copy</span></button>
           <span class="control-label">Prep buffer</span>
           <button class="quick-time" type="button" data-prep-buffer="5">5 seconds</button>
           <button class="quick-time active" type="button" data-prep-buffer="10" aria-pressed="true">10 seconds</button>
