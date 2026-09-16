@@ -417,7 +417,7 @@
           const when = leader.date === baseDate ? leader.clock : `${leader.clock} (${leader.date})`;
           return `${index + 1}. ${escapeText(leader.name)} — START ${when} UTC${first}`;
         });
-        copyOutput.value = `RALLY PLAN — HIT ${timeInput.value.trim()} UTC, ${rallyDurationLabel(rallyDuration)} rally\n${lines.join('\n')}`;
+        copyOutput.value = lines.join('\n');
         copyButton.disabled = false;
         updateCountdowns();
       }
