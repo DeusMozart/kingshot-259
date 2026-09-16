@@ -59,19 +59,6 @@
       letter-spacing: -.02em;
       white-space: nowrap;
     }
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 4px;
-    }
-    .nav a {
-      padding: 7px 10px;
-      border-radius: 7px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .nav a:hover, .nav a.active { color: var(--amber-strong); background: rgba(225, 163, 78, .1); }
 
     main { max-width: 820px; margin: 0 auto; padding: 34px 20px 72px; }
     .eyebrow {
@@ -167,7 +154,6 @@
 
     @media (max-width: 640px) {
       .topbar-inner { align-items: flex-start; flex-direction: column; padding-top: 13px; padding-bottom: 11px; }
-      .nav { justify-content: flex-start; }
       main { padding-top: 27px; }
       .grid { grid-template-columns: 1fr; }
       .leaders-head, .leader-row { grid-template-columns: 26px minmax(0, 1fr) 112px 30px; gap: 7px; }
@@ -181,12 +167,6 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="/rally/">⚔️ Kingshot Rally Sync</a>
-      <nav class="nav" aria-label="Rally tools">
-        <a href="/rally/">Calculator</a>
-        <a class="active" href="/rally/plan.html">UTC Rally Plan</a>
-        <a href="/rally/players">Saved Players</a>
-        <a href="/rally/presets">Battle Presets</a>
-      </nav>
     </div>
   </header>
 
