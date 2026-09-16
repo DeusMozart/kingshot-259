@@ -405,11 +405,11 @@
           return { ...leader, index, ...timing, date: dateWithOffset(dateLabel, timing.dayOffset), sendSeconds: Number(timing.clock.slice(0, 2)) * 3600 + Number(timing.clock.slice(3, 5)) * 60 + Number(timing.clock.slice(6, 8)) };
         }).sort((a, b) => b.marchSeconds - a.marchSeconds || a.index - b.index);
 
-        resultMeta.textContent = `All hit at UTC ${dateLabel} ${timeInput.value.trim()} • ${rallyDurationLabel(rallyDuration)} rally • ${plan.length} leaders`;
+        resultMeta.textContent = `All hit at ${timeInput.value.trim()} UTC • ${rallyDurationLabel(rallyDuration)} rally • ${plan.length} leaders`;
         resultList.innerHTML = plan.map((leader, index) => `
           <div class="result-row">
             <div class="result-name"><span class="order">${index + 1}</span>${escapeHtml(leader.name)}${index === 0 ? '<span>LEAVES FIRST</span>' : ''}</div>
-            <div class="result-time">START RALLY UTC ${escapeHtml(leader.date)} ${leader.clock}<small class="countdown" data-send-seconds="${leader.sendSeconds}"></small></div>
+            <div class="result-time">START RALLY ${leader.clock} UTC<small class="countdown" data-send-seconds="${leader.sendSeconds}"></small></div>
           </div>`).join('');
         const baseDate = dateWithOffset(dateLabel, 0);
         const lines = plan.map((leader, index) => {
@@ -417,7 +417,7 @@
           const when = leader.date === baseDate ? leader.clock : `${leader.clock} (${leader.date})`;
           return `${index + 1}. ${escapeText(leader.name)} — START ${when} UTC${first}`;
         });
-        copyOutput.value = `RALLY PLAN — HIT ${timeInput.value.trim()} UTC (${dateLabel}), ${rallyDurationLabel(rallyDuration)} rally\n${lines.join('\n')}`;
+        copyOutput.value = `RALLY PLAN — HIT ${timeInput.value.trim()} UTC, ${rallyDurationLabel(rallyDuration)} rally\n${lines.join('\n')}`;
         copyButton.disabled = false;
         updateCountdowns();
       }
