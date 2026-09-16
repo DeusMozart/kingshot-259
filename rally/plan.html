@@ -103,7 +103,7 @@
     .quick-times { display: flex; flex-wrap: wrap; gap: 7px; }
     .duration-note { flex-basis: 100%; margin: 0 0 1px; color: var(--muted); font-size: 11px; }
     .control-label { flex-basis: 100%; margin-top: 3px; color: var(--muted); font-size: 11px; }
-    .quick-time { min-height: 32px; padding: 5px 10px; border: 1px solid #604729; border-radius: 7px; color: var(--amber-strong); background: #2a2420; font-size: 12px; font-weight: 720; }
+    .quick-time { min-height: 40px; padding: 8px 13px; border: 1px solid #604729; border-radius: 9px; color: var(--amber-strong); background: #2a2420; font-size: 13px; font-weight: 720; }
     .quick-time:hover { background: #352d28; }
     .quick-time.active { color: #1b140d; background: var(--amber); border-color: var(--amber-strong); }
     label { display: grid; gap: 6px; color: #d7cec8; font-size: 13px; font-weight: 650; }
@@ -152,7 +152,7 @@
     .result-name span { display: inline-block; margin-left: 7px; padding: 2px 6px; border: 1px solid rgba(158,224,107,.3); border-radius: 5px; color: var(--green); font-size: 10px; letter-spacing: .08em; vertical-align: 2px; }
     .result-time { color: var(--amber-strong); font-variant-numeric: tabular-nums; font-weight: 760; white-space: nowrap; }
     .result-time small { margin-left: 5px; color: var(--muted); font-weight: 500; }
-    .result-time small.countdown { display: block; margin: 2px 0 0; color: #bdb1a8; font-size: 11px; }
+    .result-time small.countdown { display: block; margin: 2px 0 0; color: #bdb1a8; font-size: 13px; }
     .result-time small.countdown.late { color: var(--danger); }
     .copy-wrap { display: grid; gap: 9px; }
     .copy-label { color: #d7cec8; font-size: 13px; font-weight: 650; }
@@ -196,7 +196,7 @@
     <p class="intro">Choose the exact UTC time every rally must hit. The planner works backward from that moment so leaders leave at the right times and land together.</p>
 
     <section class="card" aria-labelledby="inputs-title">
-      <h2 class="card-title" id="inputs-title">Set the impact time</h2>
+      <h2 class="card-title" id="inputs-title">Step 1 — Set the impact time</h2>
       <p class="card-help">Keep the date exactly as Kingshot displays it, such as <strong>08-42</strong>. Set when every rally should <strong>hit</strong>—not when anyone starts marching. Choose the in-game rally duration, then enter march times as <strong>M:SS</strong>, <strong>H:MM:SS</strong>, or seconds.</p>
       <div class="grid">
         <label>In-game UTC date
@@ -213,7 +213,7 @@
           <p class="live-note">Use this as your reference; the plan stays fixed after you calculate it.</p>
         </div>
         <div class="quick-times" aria-label="Rally duration">
-          <p class="duration-note">Rally duration — tap any option to start a fresh plan.</p>
+          <p class="duration-note">Rally duration — tap any option to start a fresh plan. It copies the plan for you.</p>
           <button class="quick-time" type="button" data-rally-duration="60">1-minute rally</button>
           <button class="quick-time" type="button" data-rally-duration="180">3-minute rally</button>
           <button class="quick-time active" type="button" data-rally-duration="300" aria-pressed="true">5-minute rally</button>
@@ -237,7 +237,7 @@
 
     <section class="card result-card" aria-labelledby="results-title">
       <div class="result-top">
-        <h2 class="card-title" id="results-title">Rally start order</h2>
+        <h2 class="card-title" id="results-title">Step 2 — Rally start order</h2>
         <small id="resultMeta">Set a future impact time</small>
         <button class="mini-toggle" id="soundToggle" type="button" aria-pressed="true">🔔 Sound on</button>
       </div>
@@ -496,6 +496,7 @@
       let selectedPrepBuffer = 10;
       document.querySelectorAll('[data-rally-duration]').forEach((button) => button.addEventListener('click', () => {
         freshPlan(Number(button.dataset.rallyDuration));
+        if (!status.textContent && copyOutput.value) void copyPlan();
       }));
       document.querySelectorAll('[data-prep-buffer]').forEach((button) => button.addEventListener('click', () => {
         selectedPrepBuffer = Number(button.dataset.prepBuffer);
